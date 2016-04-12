@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <color name="main_fontValues">#3F51B5</color>
+    <color name="averageConsumption_list_values">#808080</color>
+    <color name="screen_titles">#3F51B5</color>
+    <color name="toolbar_title_font">#ffffff</color>
+
+</resources>

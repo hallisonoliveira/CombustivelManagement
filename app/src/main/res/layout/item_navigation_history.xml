@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="80dp">
+
+
+    <LinearLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="30dp"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/item_navigationHistory_date"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/style_list_values"
+            android:text="10/10/2010"/>
+
+        <TextView
+            android:id="@+id/item_navigationHistory_distance"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            style="@style/style_list_values"
+            android:textAlignment="viewEnd"
+            android:numeric="decimal"
+            android:maxLength="6"
+            android:text="12Km/l"
+            />
+    </LinearLayout>
+
+</RelativeLayout>

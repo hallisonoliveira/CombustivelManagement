@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="@dimen/nav_header_height"
+    android:background="@drawable/side_nav_bar"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    android:theme="@style/AppTheme"
+    android:orientation="vertical"
+    android:gravity="bottom">
+
+    <ImageView
+        android:id="@+id/img_menu_vehicleImage"
+        android:layout_width="70dp"
+        android:layout_height="70dp"
+        android:paddingTop="16dp"
+        android:layout_gravity="left"
+        android:src="@drawable/ic_menu_gallery" />
+
+    <TextView
+        android:id="@+id/txt_nav_manufacturerModel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/style_menu_vehicleInfo"
+        android:textStyle="bold"
+        android:paddingTop="@dimen/nav_header_vertical_spacing"
+        android:text="@null"/>
+
+    <TextView
+        android:id="@+id/txt_nav_fuelType"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        style="@style/style_menu_vehicleInfo"
+        android:text="@null"/>
+
+</LinearLayout>

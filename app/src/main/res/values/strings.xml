@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">Combustivel Management</string>
+    <string name="maps_api_key">AIzaSyCEFd3IJv7sOGjiimt5RRajttlLZa7domA</string>
+
+    <!-- Buttons - General -->
+    <string name="btn_save">Salvar</string>
+    <string name="btn_vehicleData">Dados do veículo</string>
+
+    <!-- Fuel type -->
+    <string-array name="sta_fuelTypes">
+        <item>Alcool</item>
+        <item>Gasolina</item>
+        <item>Diesel</item>
+        <item>Flex</item>
+    </string-array>
+
+    <!-- Home screen information -->
+    <string name="title_activity_main">CombustivelManagement</string>
+    <string name="main_title_values">Resumo</string>
+    <string name="main_average_concumption">Média de consumo (Litros)</string>
+    <string name="main_average_spending">Média de gastos (R$)</string>
+    <string name="main_remaining_volume">Volume restante (Litros)</string>
+    <string name="main_approximate_autonomy">Autonomia aprox. (Km)</string>
+
+    <!-- Menu -->
+    <string name="menu_title">Manu de funcionalidades</string>
+    <string name="menu_home">Principal</string>
+    <string name="menu_system">Sistema</string>
+    <string name="menu_settings">Configurações</string>
+    
+    <!-- Error messages -->
+    <string name="error_required_field">Campo obrigatório</string>
+
+    <!-- Average Consumption -->
+    <string name="averageConsumption_list_title">Médias de consumo</string>
+
+    <!-- Average consumption new -->
+    <string name="averageConsumption_new_title">Nova média</string>
+    <string name="averageConsumption_new_date">Data</string>
+    <string name="averageConsumption_new_amountLiters">Quantidade de Litros</string>
+    <string name="averageConsumption_new_priceByLiter">Preço/Litro</string>
+    <string name="averageConsumption_new_fuelType">Combustível</string>
+    <string name="averageConsumption_new_kilometer">Quilometros rodados</string>
+
+    <!-- Navigation -->
+    <string name="navigation_title">Navegação</string>
+
+    <!-- Navigation History -->
+    <string name="navigationHistory_title">Histórico de navegações</string>
+    <string name="navigationHistory_new_date">Data</string>
+    <string name="navigationHistory_new_distance">Distância percorrida</string>
+
+
+
+    <!-- Graphics -->
+    <string name="graphics_title">Gráficos</string>
+
+    <!-- Vehicle Data -->
+    <string name="vehicleData_title">Dados do veículo</string>
+    <string name="vehicleData_vehicle_manufacturer">Marca</string>
+    <string name="vehicleData_vehicle_model">Modelo</string>
+    <string name="vehicleData_vehicle_year">Ano</string>
+    <string name="vehicleData_fuelType">Tipo de combustível</string>
+
+
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+
+    <string name="action_settings">Settings</string>
+
+</resources>

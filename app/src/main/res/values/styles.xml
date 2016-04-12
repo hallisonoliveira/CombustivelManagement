@@ -1,0 +1,59 @@
+<resources>
+
+    <!-- Base application theme. -->
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light">
+        <item name="colorPrimary">#3F51B5</item>
+        <item name="colorPrimaryDark">#303F9F</item>
+        <item name="colorAccent">#FF4081</item>
+    </style>
+    <style name="AppTheme.NoActionBar">
+        <item name="windowActionBar">false</item>
+        <item name="windowNoTitle">true</item>
+    </style>
+    <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+    <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
+
+
+    <!-- Estilos dos TextView na Main -->
+    <style name="style_main_values">
+        <item name="android:textSize">30sp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textColor">@color/main_fontValues</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <!-- Estilos dos TextView da lista de medias de consumo -->
+    <style name="style_list_values">
+        <item name="android:textSize">15sp</item>
+        <item name="android:textColor">@color/averageConsumption_list_values</item>
+        <item name="android:layout_gravity">center_vertical</item>
+    </style>
+
+    <style name="style_main_titles">
+        <item name="android:textAlignment">center</item>
+        <item name="android:layout_marginBottom">16dp</item>
+    </style>
+
+    <!-- Estilos dos titulos de tela -->
+    <style name="style_screen_titles">
+        <item name="android:textSize">25sp</item>
+        <item name="android:textColor">@color/screen_titles</item>
+        <item name="android:layout_marginBottom">8dp</item>
+    </style>
+
+    <!-- Estilo da fonte das informações do veículo no menu -->
+    <style name="style_menu_vehicleInfo">
+        <item name="android:textColor">#FFFFFF</item>
+
+    </style>
+
+    <style name="style_editText">
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+
+</resources>
