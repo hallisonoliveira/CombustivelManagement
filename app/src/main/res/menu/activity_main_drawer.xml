@@ -7,20 +7,20 @@
             android:icon="@drawable/ic_home_black_24dp"
             android:title="@string/menu_home" />
 
-        <item
+        <!--item
             android:id="@+id/nav_navigation"
             android:icon="@drawable/ic_navigation_black_24dp"
-            android:title="@string/navigation_title" />
+            android:title="@string/navigation_title" /-->
 
         <item
             android:id="@+id/nav_navigation_history"
             android:icon="@drawable/ic_history_black_24dp"
             android:title="@string/navigationHistory_title" />
 
-        <item
+        <!--item
             android:id="@+id/nav_graphics"
             android:icon="@drawable/ic_show_chart_black_24dp"
-            android:title="@string/graphics_title" />
+            android:title="@string/graphics_title" /-->
 
         <item
             android:id="@+id/nav_average_consumption"

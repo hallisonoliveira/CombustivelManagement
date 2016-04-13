@@ -29,7 +29,7 @@
             android:id="@+id/txv_newAverageConsumption_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/averageConsumption_new_date"/>
+            android:text="@string/averageConsumption_date"/>
 
         <EditText
             android:id="@+id/edt_newAverageConsumption_date"
@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txv_newAverageConsumption_date"
             style="@style/style_editText"
+            android:inputType="date"
             android:editable="true" />
 
         <TextView
@@ -44,14 +45,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_newAverageConsumption_date"
-            android:text="@string/averageConsumption_new_amountLiters"/>
+            android:text="@string/averageConsumption_amountLiters"/>
 
         <EditText
             android:id="@+id/edt_newAverageConsumption_amountLiters"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txv_newAverageConsumption_amountLiters"
-            android:numeric="integer"
+            android:inputType="numberDecimal"
             style="@style/style_editText"/>
 
         <TextView
@@ -59,14 +60,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_newAverageConsumption_amountLiters"
-            android:text="@string/averageConsumption_new_priceByLiter"/>
+            android:text="@string/averageConsumption_priceByLiter"/>
 
         <EditText
             android:id="@+id/edt_newAverageConsumption_priceByLiter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txv_newAverageConsumption_priceByLiter"
-            android:numeric="integer"
+            android:inputType="numberDecimal"
             style="@style/style_editText"/>
 
         <TextView
@@ -74,14 +75,14 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_newAverageConsumption_priceByLiter"
-            android:text="@string/averageConsumption_new_kilometer"/>
+            android:text="@string/averageConsumption_kilometer"/>
 
         <EditText
             android:id="@+id/edt_newAverageConsumption_kilometer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/txv_newAverageConsumption_kilometer"
-            android:numeric="integer"
+            android:inputType="numberDecimal"
             style="@style/style_editText"/>
 
         <TextView
@@ -89,7 +90,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_newAverageConsumption_kilometer"
-            android:text="@string/averageConsumption_new_fuelType"/>
+            android:text="@string/averageConsumption_fuelType"/>
 
         <Spinner
             android:id="@+id/spn_newAverageConsumption_fuelType"

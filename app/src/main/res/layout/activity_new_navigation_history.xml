@@ -29,7 +29,7 @@
             android:id="@+id/txv_newNavigationHistory_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/averageConsumption_new_date"/>
+            android:text="@string/navigationHistory_new_date"/>
 
         <EditText
             android:id="@+id/edt_newNavigationHistory_date"

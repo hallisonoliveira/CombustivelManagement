@@ -46,10 +46,11 @@
                 android:text="@string/main_average_concumption"/>
 
             <TextView
+                android:id="@+id/txv_home_generalAverage"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/style_main_values"
-                android:text="13,5"/>
+                android:text="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -58,11 +59,12 @@
                 android:text="@string/main_average_spending"/>
 
             <TextView
+                android:id="@+id/txv_home_averageSpending"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 style="@style/style_main_values"
-                android:text="150,0"/>
+                android:text="@null"/>
 
         </LinearLayout>
 
@@ -87,10 +89,11 @@
                 android:text="@string/main_remaining_volume"/>
 
             <TextView
+                android:id="@+id/txv_home_remainingVolume"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/style_main_values"
-                android:text="45 litros"/>
+                android:text="@null"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -99,10 +102,11 @@
                 android:text="@string/main_approximate_autonomy"/>
 
             <TextView
+                android:id="@+id/txv_home_approximateAutonomy"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/style_main_values"
-                android:text="150 KM"/>
+                android:text="@null"/>
 
 
         </LinearLayout>

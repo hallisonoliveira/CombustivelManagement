@@ -17,7 +17,7 @@
             android:layout_weight="1"
             style="@style/style_list_values"
             android:textAlignment="textStart"
-            android:text="10/10/2010"/>
+            android:text="@null"/>
 
 
         <TextView
@@ -27,7 +27,7 @@
             android:layout_weight="1"
             style="@style/style_list_values"
             android:textAlignment="center"
-            android:text="50 Litros"
+            android:text="@null"
             android:numeric="decimal" />
 
         <TextView
@@ -39,7 +39,7 @@
             android:textAlignment="viewEnd"
             android:numeric="decimal"
             android:maxLength="6"
-            android:text="12Km/l"
+            android:text="@null"
             />
     </LinearLayout>
 

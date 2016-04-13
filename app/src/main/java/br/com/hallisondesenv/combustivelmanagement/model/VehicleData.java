@@ -16,17 +16,17 @@ public class VehicleData extends RealmObject implements Serializable{
     private String manufacturer;
     private String model;
     private int year;
-    private int fuelType;
+    private int fuelCapacity;
 
     public VehicleData(){}
 
-    public VehicleData(int id, String manufacturer, String model, int year, int fuelType){
+    public VehicleData(int id, String manufacturer, String model, int year, int fuelCapacity){
         super();
         this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
         this.year = year;
-        this.fuelType = fuelType;
+        this.fuelCapacity = fuelCapacity;
     }
 
     @Override
@@ -36,7 +36,7 @@ public class VehicleData extends RealmObject implements Serializable{
                 ", manufacturer='" + manufacturer + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
-                ", fuelType='" + fuelType + '\'' +
+                ", fuelCapacity='" + fuelCapacity + '\'' +
                 '}';
     }
 
@@ -56,7 +56,7 @@ public class VehicleData extends RealmObject implements Serializable{
         return year;
     }
 
-    public int getFuelType() {
-        return fuelType;
+    public int getFuelCapacity() {
+        return fuelCapacity;
     }
 }

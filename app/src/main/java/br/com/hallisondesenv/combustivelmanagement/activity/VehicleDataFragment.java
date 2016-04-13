@@ -3,6 +3,7 @@ package br.com.hallisondesenv.combustivelmanagement.activity;
 import android.content.Context;
 import android.net.Uri;
 import android.os.Bundle;
+import android.support.design.widget.FloatingActionButton;
 import android.support.v4.app.Fragment;
 import android.text.TextUtils;
 import android.util.Log;
@@ -25,19 +26,18 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
 
     public static final String TAG = "VehicleDataFragment";
 
-    private Spinner spnFuelType;
-    private Button btnSave;
     private EditText edtManufacturer;
     private EditText edtModel;
     private EditText edtYear;
+    private EditText edtFuelCapacity;
     private ImageButton imgVehicle;
+    private FloatingActionButton fabSave;
+
 
     private int vehicleId;
 
-//    private OnFragmentInteractionListener mListener;
 
     public VehicleDataFragment() {
-        // Required empty public constructor
     }
 
     public static VehicleDataFragment newInstance() {
@@ -55,7 +55,6 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        // Inflate the layout for this fragment
 
         View view = inflater.inflate(R.layout.fragment_vehicle_data, container, false);
 
@@ -67,17 +66,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
     }
 
     private void initializeComponents(View view){
-        // Inicializando o Spinner com os tipos de combustivel
-        this.spnFuelType = (Spinner) view.findViewById(R.id.spn_vehicleData_fuelType);
-        ArrayAdapter<CharSequence> fuelTypeAdapter = ArrayAdapter.createFromResource(view.getContext(),
-                R.array.sta_fuelTypes, android.R.layout.simple_spinner_item);
-
-        fuelTypeAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
-        spnFuelType.setAdapter(fuelTypeAdapter);
-
-        // Inicializando o botão que salva o cadastro do veículo
-        this.btnSave = (Button) view.findViewById(R.id.btn_vehicleData_save);
-        this.btnSave.setOnClickListener(this);
+        edtFuelCapacity = (EditText) view.findViewById(R.id.edt_vehicleData_fuelCapacity);
 
         // Inicializando o ImageButton
         this.imgVehicle = (ImageButton) view.findViewById(R.id.imb_vehicleData_vehicleImage);
@@ -91,6 +80,9 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
         // Inicializando o EditText de Ano
         this.edtYear = (EditText) view.findViewById(R.id.edt_vehicleData_year);
 
+        fabSave = (FloatingActionButton) view.findViewById(R.id.btn_vehicleData_save);
+        fabSave.setOnClickListener(this);
+
     }
 
     private void loadVehicleData(View view){
@@ -102,7 +94,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
             this.edtManufacturer.setText(vehicleData.getManufacturer());
             this.edtModel.setText(vehicleData.getModel());
             this.edtYear.setText(String.valueOf(vehicleData.getYear()));
-            this.spnFuelType.setSelection(vehicleData.getFuelType());
+            this.edtFuelCapacity.setText(String.valueOf(vehicleData.getFuelCapacity()));
         } else {
             this.vehicleId = 0;
             Toast.makeText(view.getContext(), "Nenhum veículo cadastrado.", Toast.LENGTH_SHORT).show();
@@ -121,7 +113,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
 //        }
     }
 
-    private boolean isEmptyFields(String manufacturer, String model, String year) {
+    private boolean isEmptyFields(String manufacturer, String model, String year, String fuelCapacity) {
         if (TextUtils.isEmpty(manufacturer)) {
             edtManufacturer.requestFocus();
             edtManufacturer.setError(getResources().getString(R.string.error_required_field));
@@ -133,6 +125,9 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
         } else if (TextUtils.isEmpty(year)) {
             edtYear.requestFocus();
             edtYear.setError(getResources().getString(R.string.error_required_field));
+        } else if (TextUtils.isEmpty(fuelCapacity)) {
+            edtFuelCapacity.requestFocus();
+            edtFuelCapacity.setError(getResources().getString(R.string.error_required_field));
         }
 
         return false;
@@ -143,7 +138,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
         int idToSave;
 
         if(!isEmptyFields(edtManufacturer.getText().toString(), edtModel.getText().toString(),
-                edtYear.getText().toString())) {
+                edtYear.getText().toString(), edtFuelCapacity.getText().toString())) {
 
             if (vehicleId == 0) {
                 idToSave = 1;
@@ -156,7 +151,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
                     edtManufacturer.getText().toString(),
                     edtModel.getText().toString(),
                     Integer.parseInt(edtYear.getText().toString()),
-                    spnFuelType.getSelectedItemPosition());
+                    Integer.parseInt(edtFuelCapacity.getText().toString()));
 
             try {
                 VehicleDataDao vehicleDataDao = new VehicleDataDao();

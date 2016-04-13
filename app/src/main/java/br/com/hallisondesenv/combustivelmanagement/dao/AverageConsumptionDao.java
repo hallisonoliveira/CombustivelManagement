@@ -34,11 +34,10 @@ public class AverageConsumptionDao {
     public List<AverageConsumption> list(Context context){
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(context).build();
         Realm realm = Realm.getInstance(realmConfiguration);
-        List<AverageConsumption> averageConsumptions = new ArrayList<AverageConsumption>();
 
         realm.beginTransaction();
 
-        averageConsumptions = realm.where(AverageConsumption.class).findAll();
+        List<AverageConsumption> averageConsumptions = realm.where(AverageConsumption.class).findAll();
 
         realm.commitTransaction();
 

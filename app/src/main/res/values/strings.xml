@@ -36,11 +36,13 @@
 
     <!-- Average consumption new -->
     <string name="averageConsumption_new_title">Nova média</string>
-    <string name="averageConsumption_new_date">Data</string>
-    <string name="averageConsumption_new_amountLiters">Quantidade de Litros</string>
-    <string name="averageConsumption_new_priceByLiter">Preço/Litro</string>
-    <string name="averageConsumption_new_fuelType">Combustível</string>
-    <string name="averageConsumption_new_kilometer">Quilometros rodados</string>
+    <string name="averageConsumption_date">Data</string>
+    <string name="averageConsumption_amountLiters">Quantidade de Litros</string>
+    <string name="averageConsumption_priceByLiter">Preço/Litro</string>
+    <string name="averageConsumption_fuelType">Combustível</string>
+    <string name="averageConsumption_kilometer">Quilometros rodados</string>
+    <string name="averageConsumption_kmPerLiter">KM/L</string>
+    <string name="averageConsumption_generalAverage">Média geral de consumo</string>
 
     <!-- Navigation -->
     <string name="navigation_title">Navegação</string>
@@ -60,7 +62,12 @@
     <string name="vehicleData_vehicle_manufacturer">Marca</string>
     <string name="vehicleData_vehicle_model">Modelo</string>
     <string name="vehicleData_vehicle_year">Ano</string>
-    <string name="vehicleData_fuelType">Tipo de combustível</string>
+    <string name="vehicleData_fuelCapacity">Capacidade do tanque</string>
+
+    <!-- Dialog -->
+    <string name="dialog_exit_question">Deseja sair?</string>
+    <string name="dialog_exit_yes">Sim</string>
+    <string name="dialog_exit_no">Não</string>
 
 
     <string name="navigation_drawer_open">Open navigation drawer</string>

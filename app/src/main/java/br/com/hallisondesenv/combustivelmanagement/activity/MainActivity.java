@@ -29,8 +29,10 @@ public class MainActivity extends AppCompatActivity
     private AverageConsumptionFragment averageConsumptionFragment;
     private NavigationHistoryFragment navigationHistoryFragment;
 
-    Toolbar toolbar;
-    NavigationView navigationView;
+    private Toolbar toolbar;
+    private NavigationView navigationView;
+
+    private boolean isInHome = false;
 
 
     @Override
@@ -49,8 +51,6 @@ public class MainActivity extends AppCompatActivity
 
         navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-
-//        searchVehicleData();
 
         openHomeFragment();
 
@@ -94,9 +94,11 @@ public class MainActivity extends AppCompatActivity
                 .replace(R.id.frameContent, new HomeFragment())
                 .addToBackStack(null)
                 .commit();
+        isInHome = true;
     }
 
     private void openAverageConsumptionFragment(){
+        isInHome = false;
         averageConsumptionFragment = new AverageConsumptionFragment();
 
         toolbar.setTitle(getResources().getString(R.string.averageConsumption_list_title));
@@ -110,9 +112,11 @@ public class MainActivity extends AppCompatActivity
     public void onBackPressed() {
         super.onBackPressed();
 
-
-        openHomeFragment();
-
+        if (isInHome){
+            finish();
+        } else {
+           openHomeFragment();
+        }
     }
 
     @SuppressWarnings("StatementWithEmptyBody")
@@ -123,11 +127,12 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             openHomeFragment();
 
-        } else if (id == R.id.nav_navigation) {
-            Intent intent = new Intent(this, NavigationActivity.class);
-            startActivity(intent);
+//        } else if (id == R.id.nav_navigation) {
+//            Intent intent = new Intent(this, NavigationActivity.class);
+//            startActivity(intent);
 
         } else if (id == R.id.nav_navigation_history) {
+            isInHome = false;
             navigationHistoryFragment = new NavigationHistoryFragment();
             toolbar.setTitle(getResources().getString(R.string.navigationHistory_title));
             getSupportFragmentManager().beginTransaction()
@@ -135,17 +140,19 @@ public class MainActivity extends AppCompatActivity
                     .addToBackStack(null)
                     .commit();
 
-        } else if (id == R.id.nav_graphics) {
-            toolbar.setTitle(getResources().getString(R.string.graphics_title));
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frameContent, new GraphicsFragment())
-                    .addToBackStack(null)
-                    .commit();
+//        } else if (id == R.id.nav_graphics) {
+//            isInHome = false;
+//            toolbar.setTitle(getResources().getString(R.string.graphics_title));
+//            getSupportFragmentManager().beginTransaction()
+//                    .replace(R.id.frameContent, new GraphicsFragment())
+//                    .addToBackStack(null)
+//                    .commit();
 
         } else if (id == R.id.nav_average_consumption) {
             openAverageConsumptionFragment();
 
         } else if (id == R.id.nav_vehicleData) {
+            isInHome = false;
             toolbar.setTitle(getResources().getString(R.string.vehicleData_title));
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frameContent, new VehicleDataFragment())
