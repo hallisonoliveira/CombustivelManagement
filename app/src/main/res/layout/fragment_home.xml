@@ -6,12 +6,11 @@
     tools:context=".activity.HomeFragment">
 
     <ImageView
-        android:id="@+id/img_main_vehicleImage"
+        android:id="@+id/img_main"
         android:layout_width="130dp"
         android:layout_height="130dp"
         android:layout_margin="8dp"
-        android:layout_centerHorizontal="true"
-        android:src="@drawable/ic_menu_gallery"/>
+        android:layout_centerHorizontal="true"/>
 
 
     <TextView
@@ -21,7 +20,7 @@
         android:textAlignment="center"
         android:paddingTop="16dp"
         android:paddingBottom="8dp"
-        android:layout_below="@id/img_main_vehicleImage"
+        android:layout_below="@id/img_main"
         android:textStyle="bold"
         android:text="@string/main_title_values"/>
 
@@ -50,13 +49,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/style_main_values"
-                android:text="@null"/>
+                android:text="0,0"/>
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/style_main_titles"
-                android:text="@string/main_average_spending"/>
+                android:text="@string/main_spending"/>
 
             <TextView
                 android:id="@+id/txv_home_averageSpending"
@@ -64,7 +63,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginBottom="16dp"
                 style="@style/style_main_values"
-                android:text="@null"/>
+                android:text="0,0"/>
 
         </LinearLayout>
 
@@ -93,7 +92,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/style_main_values"
-                android:text="@null"/>
+                android:text="0,0"/>
 
             <TextView
                 android:layout_width="wrap_content"
@@ -106,7 +105,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 style="@style/style_main_values"
-                android:text="@null"/>
+                android:text="0,0"/>
 
 
         </LinearLayout>

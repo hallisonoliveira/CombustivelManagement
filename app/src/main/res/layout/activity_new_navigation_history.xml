@@ -37,6 +37,8 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txv_newNavigationHistory_date"
             style="@style/style_editText"
+            android:inputType="date"
+            android:maxLength="10"
             android:editable="true" />
 
         <TextView

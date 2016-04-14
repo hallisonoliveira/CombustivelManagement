@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.List;
 
 import br.com.hallisondesenv.combustivelmanagement.R;
@@ -47,13 +48,20 @@ public class AverageConsumptionAdapter extends BaseAdapter {
         View line = LayoutInflater.from(context).inflate(R.layout.item_average_consumption, null);
 
         TextView txvDate = (TextView) line.findViewById(R.id.item_averageConsumption_date);
-        TextView txvAmountLiters = (TextView) line.findViewById(R.id.item_averageConsumption_amountLiters);
-        TextView txvAverage = (TextView) line.findViewById(R.id.item_averageConsumption_average);
-
         txvDate.setText(averageConsumption.getDate());
-        txvAmountLiters.setText(String.valueOf(averageConsumption.getAmountLiters()));
-        txvAverage.setText(String.valueOf(averageConsumption.getAverageConsumption()));
+
+        TextView txvAmountLiters = (TextView) line.findViewById(R.id.item_averageConsumption_amountLiters);
+        txvAmountLiters.setText(new DecimalFormat(".###").format(averageConsumption.getAmountLiters()));
+
+        TextView txvAverage = (TextView) line.findViewById(R.id.item_averageConsumption_average);
+        txvAverage.setText(new DecimalFormat(".###").format(averageConsumption.getAverageConsumption()));
 
         return line;
+    }
+
+    static class ViewHolder{
+        TextView txvDate;
+        TextView txvAmountLiters;
+        TextView txvAverage;
     }
 }

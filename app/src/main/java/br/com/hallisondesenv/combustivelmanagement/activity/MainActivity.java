@@ -10,8 +10,9 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 
 
 import br.com.hallisondesenv.combustivelmanagement.R;
@@ -28,6 +29,7 @@ public class MainActivity extends AppCompatActivity
 
     private AverageConsumptionFragment averageConsumptionFragment;
     private NavigationHistoryFragment navigationHistoryFragment;
+    private ImageView imgMenu;
 
     private Toolbar toolbar;
     private NavigationView navigationView;
@@ -45,7 +47,7 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
-            this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
+                this, drawer, toolbar, R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.setDrawerListener(toggle);
         toggle.syncState();
 
@@ -56,27 +58,33 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-    @Override
-    protected void onResumeFragments() {
-        if(averageConsumptionFragment != null){
-            openAverageConsumptionFragment();
-        } else {
-            super.onResumeFragments();
-        }
-    }
+//    @Override
+//    protected void onResumeFragments() {
+//        if(averageConsumptionFragment != null){
+//            openAverageConsumptionFragment();
+//        } else {
+//            super.onResumeFragments();
+//        }
+//    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+
         searchVehicleData();
+
         return super.onCreateOptionsMenu(menu);
     }
 
     private void initializeComponents(){
+        this.imgMenu = (ImageView) findViewById(R.id.img_menu);
+        this.imgMenu.setImageResource(R.mipmap.comb_management);
+
         this.navVehicleManufacturer = (TextView) findViewById(R.id.txt_nav_manufacturerModel);
         this.navVehicleFuelType = (TextView) findViewById(R.id.txt_nav_fuelType);
     }
 
     private void searchVehicleData(){
+
         initializeComponents();
 
         VehicleData vehicleData = new VehicleDataDao().findById(this);
@@ -85,6 +93,7 @@ public class MainActivity extends AppCompatActivity
             this.navVehicleManufacturer.setText(vehicleData.getManufacturer() + "/" + vehicleData.getModel());
 //            this.navVehicleFuelType.setText(vehicleData.getFuelType());
         }
+
     }
 
     private void openHomeFragment(){
@@ -104,6 +113,15 @@ public class MainActivity extends AppCompatActivity
         toolbar.setTitle(getResources().getString(R.string.averageConsumption_list_title));
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameContent, averageConsumptionFragment)
+                .addToBackStack(null)
+                .commit();
+    }
+
+    private void openVehicleDataFragment(){
+        isInHome = false;
+        toolbar.setTitle(getResources().getString(R.string.vehicleData_title));
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.frameContent, new VehicleDataFragment())
                 .addToBackStack(null)
                 .commit();
     }
@@ -152,12 +170,7 @@ public class MainActivity extends AppCompatActivity
             openAverageConsumptionFragment();
 
         } else if (id == R.id.nav_vehicleData) {
-            isInHome = false;
-            toolbar.setTitle(getResources().getString(R.string.vehicleData_title));
-            getSupportFragmentManager().beginTransaction()
-                    .replace(R.id.frameContent, new VehicleDataFragment())
-                    .addToBackStack(null)
-                    .commit();
+            openVehicleDataFragment();
 
 //        } else if (id == R.id.nav_settings) {
 

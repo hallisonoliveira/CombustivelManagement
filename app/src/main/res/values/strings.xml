@@ -17,10 +17,11 @@
     <!-- Home screen information -->
     <string name="title_activity_main">CombustivelManagement</string>
     <string name="main_title_values">Resumo</string>
-    <string name="main_average_concumption">Média de consumo (Litros)</string>
-    <string name="main_average_spending">Média de gastos (R$)</string>
+    <string name="main_average_concumption">Média de consumo (Km/l)</string>
+    <string name="main_spending">Total de gastos (R$)</string>
     <string name="main_remaining_volume">Volume restante (Litros)</string>
     <string name="main_approximate_autonomy">Autonomia aprox. (Km)</string>
+    <string name="main_noValue">0,0</string>
 
     <!-- Menu -->
     <string name="menu_title">Manu de funcionalidades</string>
@@ -30,6 +31,7 @@
     
     <!-- Error messages -->
     <string name="error_required_field">Campo obrigatório</string>
+    <string name="error_vehicleData_required">Você deve preencher o cadastro do veículo antes de utilizar as funcionalidades do aplicativo</string>
 
     <!-- Average Consumption -->
     <string name="averageConsumption_list_title">Médias de consumo</string>
@@ -41,7 +43,7 @@
     <string name="averageConsumption_priceByLiter">Preço/Litro</string>
     <string name="averageConsumption_fuelType">Combustível</string>
     <string name="averageConsumption_kilometer">Quilometros rodados</string>
-    <string name="averageConsumption_kmPerLiter">KM/L</string>
+    <string name="averageConsumption_kmPerLiter">Km/L</string>
     <string name="averageConsumption_generalAverage">Média geral de consumo</string>
 
     <!-- Navigation -->

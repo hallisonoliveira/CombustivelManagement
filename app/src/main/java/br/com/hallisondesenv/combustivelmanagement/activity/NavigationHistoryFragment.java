@@ -38,6 +38,12 @@ public class NavigationHistoryFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_list_navigation_history, null);
 
+        initializeComponents(view);
+
+        return view;
+    }
+
+    private void initializeComponents(View view){
         lsvNavigationHistories = (ListView) view.findViewById(R.id.lsv_navigationHistory);
         adapter = new NavigationHistoryAdapter(super.getContext(), navigationHistories);
         lsvNavigationHistories.setAdapter(adapter);
@@ -50,8 +56,6 @@ public class NavigationHistoryFragment extends Fragment {
                 startActivity(intent);
             }
         });
-
-        return view;
     }
 
     @Override
@@ -62,8 +66,7 @@ public class NavigationHistoryFragment extends Fragment {
 
     private List<NavigationHistory> getNavigationHistories(Context context){
         NavigationHistoryDao navigationHistoryDao = new NavigationHistoryDao();
-        List<NavigationHistory> navigationHistories;
-        navigationHistories = navigationHistoryDao.list(context);
+        List<NavigationHistory> navigationHistories = navigationHistoryDao.list(context);
 
         return navigationHistories;
     }

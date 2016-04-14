@@ -35,14 +35,34 @@ public class VehicleDataDao {
         try {
             realm.beginTransaction();
 
-            RealmResults<VehicleData> results = realm.where(VehicleData.class).findAll();
+            VehicleData vehicleData = realm.where(VehicleData.class).equalTo("id", 1).findFirst();
 
             realm.commitTransaction();
 
-            return results.get(0);
-        } catch (ArrayIndexOutOfBoundsException e){
+            return vehicleData;
+        } catch (Exception e){
             Log.i(TAG, e.getMessage());
             return null;
         }
+    }
+
+    public void fillTank(Context context){
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(context).build();
+        Realm realm = Realm.getInstance(realmConfiguration);
+        VehicleData vehicleData = realm.where(VehicleData.class).equalTo("id", 1).findFirst();
+        realm.beginTransaction();
+        vehicleData.fillTank();
+        realm.commitTransaction();
+        Log.i(TAG,"Fill Tank >>> " + vehicleData.getRemainingVolume());
+    }
+
+    public void updateRemaingVolume(float newVolume, Context context){
+        RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(context).build();
+        Realm realm = Realm.getInstance(realmConfiguration);
+        VehicleData vehicleData = realm.where(VehicleData.class).equalTo("id", 1).findFirst();
+        realm.beginTransaction();
+        vehicleData.setRemainingVolume(newVolume);
+        realm.commitTransaction();
+        Log.i(TAG,"Remaining Volume >>> " + vehicleData.getRemainingVolume());
     }
 }

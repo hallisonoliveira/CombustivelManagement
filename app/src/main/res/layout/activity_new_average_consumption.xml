@@ -37,6 +37,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/txv_newAverageConsumption_date"
             style="@style/style_editText"
+            android:maxLength="10"
             android:inputType="date"
             android:editable="true" />
 
@@ -75,6 +76,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/edt_newAverageConsumption_priceByLiter"
+            android:inputType="numberDecimal"
             android:text="@string/averageConsumption_kilometer"/>
 
         <EditText
@@ -84,22 +86,6 @@
             android:layout_below="@id/txv_newAverageConsumption_kilometer"
             android:inputType="numberDecimal"
             style="@style/style_editText"/>
-
-        <TextView
-            android:id="@+id/txv_newAverageConsumption_fuelType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/edt_newAverageConsumption_kilometer"
-            android:text="@string/averageConsumption_fuelType"/>
-
-        <Spinner
-            android:id="@+id/spn_newAverageConsumption_fuelType"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/txv_newAverageConsumption_fuelType"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true">
-        </Spinner>
 
         <android.support.design.widget.FloatingActionButton
             android:id="@+id/btn_save_averageComsumption"

@@ -35,6 +35,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
 
 
     private int vehicleId;
+    private boolean isEditableFields = true;
 
 
     public VehicleDataFragment() {
@@ -68,10 +69,6 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
     private void initializeComponents(View view){
         edtFuelCapacity = (EditText) view.findViewById(R.id.edt_vehicleData_fuelCapacity);
 
-        // Inicializando o ImageButton
-        this.imgVehicle = (ImageButton) view.findViewById(R.id.imb_vehicleData_vehicleImage);
-        this.imgVehicle.setOnClickListener(this);
-
         // Inicializando o EditText de Marca
         this.edtManufacturer = (EditText) view.findViewById(R.id.edt_vehicleData_manufacturer);
 
@@ -95,9 +92,16 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
             this.edtModel.setText(vehicleData.getModel());
             this.edtYear.setText(String.valueOf(vehicleData.getYear()));
             this.edtFuelCapacity.setText(String.valueOf(vehicleData.getFuelCapacity()));
+
+            this.isEditableFields = false;
+            setFieldsStatus();
+
         } else {
             this.vehicleId = 0;
             Toast.makeText(view.getContext(), "Nenhum veículo cadastrado.", Toast.LENGTH_SHORT).show();
+
+            this.isEditableFields = true;
+            setFieldsStatus();
         }
 
     }
@@ -133,6 +137,20 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
         return false;
     }
 
+    private void setFieldsStatus(){
+        this.edtManufacturer.setEnabled(this.isEditableFields);
+        this.edtModel.setEnabled(this.isEditableFields);
+        this.edtYear.setEnabled(this.isEditableFields);
+        this.edtFuelCapacity.setEnabled(this.isEditableFields);
+
+        if (this.isEditableFields){
+            this.fabSave.setImageResource(R.drawable.ic_save_white_24dp);
+        }else {
+            this.fabSave.setImageResource(R.drawable.ic_edit_white_24dp);
+        }
+
+    }
+
     private void saveVehicleData(){
 
         int idToSave;
@@ -151,13 +169,17 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
                     edtManufacturer.getText().toString(),
                     edtModel.getText().toString(),
                     Integer.parseInt(edtYear.getText().toString()),
-                    Integer.parseInt(edtFuelCapacity.getText().toString()));
+                    Integer.parseInt(edtFuelCapacity.getText().toString()),
+                    0f);
 
             try {
                 VehicleDataDao vehicleDataDao = new VehicleDataDao();
                 vehicleDataDao.save(vehicleData, getContext());
 
                 Toast.makeText(super.getContext(), "Veículo salvo com sucesso.", Toast.LENGTH_SHORT).show();
+
+                this.isEditableFields = false;
+                setFieldsStatus();
 
             } catch (Exception e){
                 Toast.makeText(super.getContext(), "Houve um erro ao salvar os dados do veículo.", Toast.LENGTH_SHORT).show();
@@ -173,7 +195,14 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
     public void onClick(View v) {
         switch (v.getId()){
             case R.id.btn_vehicleData_save:{
+                if (this.isEditableFields){
                     saveVehicleData();
+                } else {
+                    this.isEditableFields = true;
+                    setFieldsStatus();
+                }
+
+
                 break;
             }
         }

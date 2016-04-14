@@ -10,11 +10,13 @@ import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import java.text.DecimalFormat;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -65,12 +67,18 @@ public class AverageConsumptionFragment extends Fragment implements View.OnClick
         lsvAverageConsumptions = (ListView) view.findViewById(R.id.lsv_averageComsumption);
         adapter = new AverageConsumptionAdapter(super.getContext(), averageConsumptions);
         lsvAverageConsumptions.setAdapter(adapter);
+//        setListViewHeightBasedOnChildren(lsvAverageConsumptions);
+        lsvAverageConsumptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                AverageConsumption averageConsumption = (AverageConsumption) adapter.getItem(position);
+                Log.d("AverageConsumption", averageConsumption.toString());
+            }
+        });
 
-        setListViewHeightBasedOnChildren(lsvAverageConsumptions);
 
 
         txvGeneralAverage = (TextView) view.findViewById(R.id.txv_averageConsumption_generalAverage);
-
 
         FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_add_averageComsumption);
         fab.setOnClickListener(new View.OnClickListener() {
@@ -81,7 +89,8 @@ public class AverageConsumptionFragment extends Fragment implements View.OnClick
             }
         });
 
-        txvGeneralAverage.setText(String.valueOf(new AverageConsumption().getGeneralAverage(view.getContext())));
+        txvGeneralAverage.setText(new DecimalFormat(".###").format(new AverageConsumption().getGeneralAverage(view.getContext())) + "Km/L");
+
     }
 
     private List<AverageConsumption> getAverageConsumptions(Context context){

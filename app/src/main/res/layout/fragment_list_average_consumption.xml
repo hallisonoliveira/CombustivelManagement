@@ -54,7 +54,8 @@
         android:layout_weight="9"
         android:layout_marginTop="8dp"
         android:layout_below="@+id/lyt_header_list"
-        android:headerDividersEnabled="true">
+        android:clickable="true"
+        android:contextClickable="true">
     </ListView>
 
 
@@ -82,7 +83,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/style_list_values"
-            android:textAlignment="textStart"
+            android:textAlignment="textEnd"
             android:textStyle="bold"
             android:text="@null"/>
 

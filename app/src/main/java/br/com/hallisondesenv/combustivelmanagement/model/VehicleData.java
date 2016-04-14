@@ -17,16 +17,18 @@ public class VehicleData extends RealmObject implements Serializable{
     private String model;
     private int year;
     private int fuelCapacity;
+    private float remainingVolume;
 
     public VehicleData(){}
 
-    public VehicleData(int id, String manufacturer, String model, int year, int fuelCapacity){
+    public VehicleData(int id, String manufacturer, String model, int year, int fuelCapacity, float remainingVolume){
         super();
         this.id = id;
         this.manufacturer = manufacturer;
         this.model = model;
         this.year = year;
         this.fuelCapacity = fuelCapacity;
+        this.remainingVolume = remainingVolume;
     }
 
     @Override
@@ -36,7 +38,8 @@ public class VehicleData extends RealmObject implements Serializable{
                 ", manufacturer='" + manufacturer + '\'' +
                 ", model='" + model + '\'' +
                 ", year=" + year +
-                ", fuelCapacity='" + fuelCapacity + '\'' +
+                ", fuelCapacity=" + fuelCapacity +
+                ", remainingVolume=" + remainingVolume +
                 '}';
     }
 
@@ -58,5 +61,17 @@ public class VehicleData extends RealmObject implements Serializable{
 
     public int getFuelCapacity() {
         return fuelCapacity;
+    }
+
+    public float getRemainingVolume() {
+        return remainingVolume;
+    }
+
+    public void setRemainingVolume(float volume) {
+        this.remainingVolume = remainingVolume - volume;
+    }
+
+    public void fillTank() {
+        this.remainingVolume = this.fuelCapacity;
     }
 }

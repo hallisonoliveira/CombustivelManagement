@@ -16,6 +16,7 @@ import android.widget.Toast;
 import br.com.hallisondesenv.combustivelmanagement.R;
 import br.com.hallisondesenv.combustivelmanagement.dao.AverageConsumptionDao;
 import br.com.hallisondesenv.combustivelmanagement.dao.NavigationHistoryDao;
+import br.com.hallisondesenv.combustivelmanagement.dao.VehicleDataDao;
 import br.com.hallisondesenv.combustivelmanagement.model.AverageConsumption;
 import br.com.hallisondesenv.combustivelmanagement.model.NavigationHistory;
 
@@ -78,12 +79,21 @@ public class NavigationHistoryActivity extends AppCompatActivity {
                 edtDate.getText().toString(),
                 edtDistance.getText().toString())){
 
+                float distance = Float.parseFloat(edtDistance.getText().toString());
+
                 NavigationHistory navigationHistory = new NavigationHistory(
                     new NavigationHistory().getNextKey(this),
                     edtDate.getText().toString(),
-                    Float.parseFloat(edtDistance.getText().toString()));
+                    distance);
 
             try{
+
+                float generalAverageConsumption = new AverageConsumption().getGeneralAverage(this);
+                float fuelSpend = distance / generalAverageConsumption;
+
+                VehicleDataDao vehicleDataDao = new VehicleDataDao();
+                vehicleDataDao.updateRemaingVolume(fuelSpend, this);
+
                 NavigationHistoryDao navigationHistoryDao = new NavigationHistoryDao();
                 navigationHistoryDao.save(navigationHistory, this);
                 Toast.makeText(this, "Histórico de navegação cadastrado com sucesso.", Toast.LENGTH_SHORT).show();

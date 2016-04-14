@@ -47,11 +47,17 @@ public class NavigationHistoryAdapter extends BaseAdapter {
         View line = LayoutInflater.from(context).inflate(R.layout.item_navigation_history, null);
 
         TextView txvDate = (TextView) line.findViewById(R.id.item_navigationHistory_date);
-        TextView txvDistance = (TextView) line.findViewById(R.id.item_navigationHistory_distance);
-
         txvDate.setText(navigationHistory.getDate());
+
+        TextView txvDistance = (TextView) line.findViewById(R.id.item_navigationHistory_distance);
         txvDistance.setText(String.valueOf(navigationHistory.getDistance()));
 
+
         return line;
+    }
+
+    static class ViewHolder{
+        TextView txvDate;
+        TextView txvDistance;
     }
 }
