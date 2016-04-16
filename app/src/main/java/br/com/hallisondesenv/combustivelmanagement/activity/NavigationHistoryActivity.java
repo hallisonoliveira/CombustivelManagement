@@ -21,6 +21,8 @@ import br.com.hallisondesenv.combustivelmanagement.model.AverageConsumption;
 import br.com.hallisondesenv.combustivelmanagement.model.NavigationHistory;
 
 /**
+ * Classe responsável pela activity de adição de um novo histórico de navegação
+ *
  * Created by Hallison on 07/04/2016.
  */
 public class NavigationHistoryActivity extends AppCompatActivity {
@@ -45,6 +47,9 @@ public class NavigationHistoryActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Inicialização de todos os views da tela
+     */
     private void initializeComponents(){
 
         edtDate = (EditText) findViewById(R.id.edt_newNavigationHistory_date);
@@ -59,6 +64,12 @@ public class NavigationHistoryActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Verifica se os campos da tela estão em branco quando o usuário clica em Salvar
+     * @param date
+     * @param distance
+     * @return True se algum dos campos estiverem vazios e False se todos os campos estiverem preenchidos
+     */
     private boolean isEmptyFields(String date, String distance) {
         if (TextUtils.isEmpty(date)) {
             edtDate.requestFocus();
@@ -73,8 +84,12 @@ public class NavigationHistoryActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Salva o histórico de navegação
+     */
     private void saveNavigationHistory(){
 
+        // Verifica se os campos estão vazios
         if(!isEmptyFields(
                 edtDate.getText().toString(),
                 edtDistance.getText().toString())){
@@ -87,7 +102,6 @@ public class NavigationHistoryActivity extends AppCompatActivity {
                     distance);
 
             try{
-
                 float generalAverageConsumption = new AverageConsumption().getGeneralAverage(this);
                 float fuelSpend = distance / generalAverageConsumption;
 
@@ -96,12 +110,12 @@ public class NavigationHistoryActivity extends AppCompatActivity {
 
                 NavigationHistoryDao navigationHistoryDao = new NavigationHistoryDao();
                 navigationHistoryDao.save(navigationHistory, this);
-                Toast.makeText(this, "Histórico de navegação cadastrado com sucesso.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.info_navigationHistory_saved, Toast.LENGTH_SHORT).show();
 
                 this.finish();
 
             } catch (Exception e){
-                Toast.makeText(this, "Houve um erro ao salvar os dados.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.info_navigationHistory_notSaved, Toast.LENGTH_SHORT).show();
                 Log.e(TAG, e.getMessage());
             }
 

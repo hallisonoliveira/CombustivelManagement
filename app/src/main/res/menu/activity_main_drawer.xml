@@ -36,12 +36,10 @@
     <item android:title="@string/menu_system">
 
         <menu>
-            <!--
                 <item
-                    android:id="@+id/nav_settings"
+                    android:id="@+id/nav_about"
                     android:icon="@drawable/ic_menu_manage"
-                    android:title="@string/menu_settings" />
-            -->
+                    android:title="@string/menu_about" />
 
             <item
                 android:id="@+id/nav_exit"

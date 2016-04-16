@@ -12,23 +12,29 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 
 import br.com.hallisondesenv.combustivelmanagement.R;
 import br.com.hallisondesenv.combustivelmanagement.dao.VehicleDataDao;
 import br.com.hallisondesenv.combustivelmanagement.model.VehicleData;
 
+
+/**
+ * Classe principal do aplicativo.
+ * Nessa classe são gerenciadas as ações do Navigation Drawer para iniciar os fragments
+ *
+ * Created by Hallison on 01/04/2016.
+ */
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
 
     public static final String TAG = "MainActivity";
 
     private TextView navVehicleManufacturer;
-    private TextView navVehicleFuelType;
 
     private AverageConsumptionFragment averageConsumptionFragment;
     private NavigationHistoryFragment navigationHistoryFragment;
+
     private ImageView imgMenu;
 
     private Toolbar toolbar;
@@ -58,14 +64,21 @@ public class MainActivity extends AppCompatActivity
 
     }
 
-//    @Override
-//    protected void onResumeFragments() {
-//        if(averageConsumptionFragment != null){
-//            openAverageConsumptionFragment();
-//        } else {
-//            super.onResumeFragments();
-//        }
-//    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+    }
+
+
+        @Override
+    protected void onResumeFragments() {
+        super.onResumeFragments();
+        if(averageConsumptionFragment != null){
+        openAverageConsumptionFragment();
+        } else {
+        super.onResumeFragments();
+        }
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -75,30 +88,38 @@ public class MainActivity extends AppCompatActivity
         return super.onCreateOptionsMenu(menu);
     }
 
+    /**
+     * Inicialização dos views presentes no cabeçalho do menu
+     */
     private void initializeComponents(){
         this.imgMenu = (ImageView) findViewById(R.id.img_menu);
         this.imgMenu.setImageResource(R.mipmap.comb_management);
 
         this.navVehicleManufacturer = (TextView) findViewById(R.id.txt_nav_manufacturerModel);
-        this.navVehicleFuelType = (TextView) findViewById(R.id.txt_nav_fuelType);
     }
 
+    /**
+     * Busca a marca e o modelo do veículo cadastrado para exibir no cabeçalho do menu
+     */
     private void searchVehicleData(){
-
         initializeComponents();
-
         VehicleData vehicleData = new VehicleDataDao().findById(this);
 
         if (vehicleData != null) {
             this.navVehicleManufacturer.setText(vehicleData.getManufacturer() + "/" + vehicleData.getModel());
-//            this.navVehicleFuelType.setText(vehicleData.getFuelType());
         }
 
     }
 
+    /**
+     * Abre o fragment Home
+     */
     private void openHomeFragment(){
         toolbar.setTitle(getResources().getString(R.string.app_name));
         navigationView.setCheckedItem(R.id.nav_home);
+
+        detachFragments();
+
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameContent, new HomeFragment())
                 .addToBackStack(null)
@@ -106,8 +127,14 @@ public class MainActivity extends AppCompatActivity
         isInHome = true;
     }
 
+    /**
+     * Abre o fragment AverageConsumption
+     */
     private void openAverageConsumptionFragment(){
         isInHome = false;
+
+        detachFragments();
+
         averageConsumptionFragment = new AverageConsumptionFragment();
 
         toolbar.setTitle(getResources().getString(R.string.averageConsumption_list_title));
@@ -117,8 +144,14 @@ public class MainActivity extends AppCompatActivity
                 .commit();
     }
 
+    /**
+     * Abre o fragment VehicleData
+     */
     private void openVehicleDataFragment(){
         isInHome = false;
+
+        detachFragments();
+
         toolbar.setTitle(getResources().getString(R.string.vehicleData_title));
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameContent, new VehicleDataFragment())
@@ -137,6 +170,20 @@ public class MainActivity extends AppCompatActivity
         }
     }
 
+    /**
+     * Finaliza a instancia de todos os fragments a cada troca de tela
+     */
+    private void detachFragments(){
+        averageConsumptionFragment = null;
+        navigationHistoryFragment = null;
+    }
+
+
+    /**
+     * Trata os eventos de seleção vindos do menu
+     * @param item Item selecionado no menu
+     * @return Retorna True por padrão
+     */
     @SuppressWarnings("StatementWithEmptyBody")
     @Override
     public boolean onNavigationItemSelected(MenuItem item) {
@@ -145,12 +192,9 @@ public class MainActivity extends AppCompatActivity
         if (id == R.id.nav_home) {
             openHomeFragment();
 
-//        } else if (id == R.id.nav_navigation) {
-//            Intent intent = new Intent(this, NavigationActivity.class);
-//            startActivity(intent);
-
         } else if (id == R.id.nav_navigation_history) {
             isInHome = false;
+            detachFragments();
             navigationHistoryFragment = new NavigationHistoryFragment();
             toolbar.setTitle(getResources().getString(R.string.navigationHistory_title));
             getSupportFragmentManager().beginTransaction()
@@ -158,13 +202,6 @@ public class MainActivity extends AppCompatActivity
                     .addToBackStack(null)
                     .commit();
 
-//        } else if (id == R.id.nav_graphics) {
-//            isInHome = false;
-//            toolbar.setTitle(getResources().getString(R.string.graphics_title));
-//            getSupportFragmentManager().beginTransaction()
-//                    .replace(R.id.frameContent, new GraphicsFragment())
-//                    .addToBackStack(null)
-//                    .commit();
 
         } else if (id == R.id.nav_average_consumption) {
             openAverageConsumptionFragment();
@@ -172,7 +209,11 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_vehicleData) {
             openVehicleDataFragment();
 
-//        } else if (id == R.id.nav_settings) {
+        } else if (id == R.id.nav_about) {
+            isInHome = false;
+            Intent intent = new Intent(this, AboutActivity.class);
+            startActivity(intent);
+
 
         } else if (id == R.id.nav_exit) {
             this.finish();
@@ -180,7 +221,6 @@ public class MainActivity extends AppCompatActivity
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         drawer.closeDrawer(GravityCompat.START);
-
 
         return true;
     }

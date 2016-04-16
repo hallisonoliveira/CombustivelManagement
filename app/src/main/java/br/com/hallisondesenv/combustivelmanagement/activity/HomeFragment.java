@@ -20,7 +20,11 @@ import br.com.hallisondesenv.combustivelmanagement.dao.VehicleDataDao;
 import br.com.hallisondesenv.combustivelmanagement.model.AverageConsumption;
 import br.com.hallisondesenv.combustivelmanagement.model.VehicleData;
 
-
+/**
+ * Classe responsável pelo fragment Home
+ *
+ * Created by Hallison on 01/04/2016.
+ */
 public class HomeFragment extends Fragment {
 
     public static final String TAG = "HomeFragment";
@@ -35,12 +39,6 @@ public class HomeFragment extends Fragment {
         // Required empty public constructor
     }
 
-    public static HomeFragment newInstance() {
-        HomeFragment fragment = new HomeFragment();
-
-        return fragment;
-    }
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -53,6 +51,10 @@ public class HomeFragment extends Fragment {
         return view;
     }
 
+    /**
+     * Inicialização dos view da tela
+     * @param view View do fragment para que os componentes do fragment possam ser encontrados através do findViewById
+     */
     private void initializeComponents(View view){
 
         this.imgApp = (ImageView) view.findViewById(R.id.img_main);
@@ -63,13 +65,16 @@ public class HomeFragment extends Fragment {
         this.txvRemainingVolume = (TextView) view.findViewById(R.id.txv_home_remainingVolume);
         this.txvAverageSpending = (TextView) view.findViewById(R.id.txv_home_averageSpending);
 
+        // Verifica se há dados de veículo cadastrados
+        // Se já houver dados do veículo, busca as informações e apresenta na tela com as devidas máscaras
         if (hasVehicleData()){
             this.txvGeneralAverage.setText(new DecimalFormat(".###").format(getGeneralAverage()));
             this.txvApproximateAutonomy.setText(new DecimalFormat(".###").format(getApproximateAutonomy()));
             this.txvRemainingVolume.setText(new DecimalFormat(".###").format(getRemainingVolume()));
             this.txvAverageSpending.setText(NumberFormat.getCurrencyInstance().format(getAverageSpending()));
-        } else {
 
+        // Se não houver, informa ao usuário que é necessário cadastrar os dados do veículo
+        } else {
             Toast.makeText(getContext(), R.string.error_vehicleData_required, Toast.LENGTH_LONG).show();
 
             this.txvGeneralAverage.setText(R.string.main_noValue);
@@ -80,6 +85,10 @@ public class HomeFragment extends Fragment {
 
     }
 
+    /**
+     * Calcula a autonomia aproximada com base na quantidade de combustível restante e a média geral de consumo
+     * @return Autonomia aproximada (float)
+     */
     private float getApproximateAutonomy(){
         float approximateAutonomy = 0;
 
@@ -88,6 +97,10 @@ public class HomeFragment extends Fragment {
         return approximateAutonomy;
     }
 
+    /**
+     * Busca no objeto VehicleData a quantidade de combustível restante
+     * @return Quantidade de combustível restante
+     */
     private float getRemainingVolume(){
         VehicleDataDao vehicleDataDao = new VehicleDataDao();
         VehicleData vehicleData = vehicleDataDao.findById(getContext());
@@ -99,23 +112,31 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    /**
+     * Busca a média geral calculada com base em todas as médias de consumo cadastrada
+     * @return Média geral
+     */
     @NonNull
     private float getGeneralAverage(){
         float generalAverage = new AverageConsumption().getGeneralAverage(getContext());
 
-//        if (generalAverage > 0){
-            return generalAverage;
-//        } else {
-//            return 0.0f;
-//        }
-
+        return generalAverage;
     }
 
+
+    /**
+     * Busca o total de gastos financeiros com combustível
+     * @return Total de gastos
+     */
     @NonNull
     private float getAverageSpending(){
         return new AverageConsumption().getAverageSpending(getContext());
     }
 
+    /**
+     * Verifica se já há dados de veículo cadastrados
+     * @return True se houver cadastro e False se não houver
+     */
     private boolean hasVehicleData(){
         VehicleDataDao vehicleDataDao = new VehicleDataDao();
         VehicleData vehicleData = vehicleDataDao.findById(getContext());
@@ -126,6 +147,4 @@ public class HomeFragment extends Fragment {
             return false;
         }
     }
-
-
 }

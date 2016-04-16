@@ -26,15 +26,20 @@ import br.com.hallisondesenv.combustivelmanagement.dao.AverageConsumptionDao;
 import br.com.hallisondesenv.combustivelmanagement.model.AverageConsumption;
 
 /**
+ * Classe responsável pelo fragment AverageConsumption
+ *
  * Created by Hallison on 01/04/2016.
  */
-public class AverageConsumptionFragment extends Fragment implements View.OnClickListener {
+public class AverageConsumptionFragment extends Fragment {
 
     List<AverageConsumption> averageConsumptions;
     AverageConsumptionAdapter adapter;
     ListView lsvAverageConsumptions;
     TextView txvGeneralAverage;
 
+    /**
+     * Construtor vazio
+     */
     public AverageConsumptionFragment(){
 
     }
@@ -63,11 +68,14 @@ public class AverageConsumptionFragment extends Fragment implements View.OnClick
         return view;
     }
 
+    /**
+     * Inicialização de todos os views da tela
+     * @param view View do fragment para que os componentes do fragment possam ser encontrados através do findViewById
+     */
     private void initializeComponents(View view){
         lsvAverageConsumptions = (ListView) view.findViewById(R.id.lsv_averageComsumption);
         adapter = new AverageConsumptionAdapter(super.getContext(), averageConsumptions);
         lsvAverageConsumptions.setAdapter(adapter);
-//        setListViewHeightBasedOnChildren(lsvAverageConsumptions);
         lsvAverageConsumptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
@@ -75,8 +83,6 @@ public class AverageConsumptionFragment extends Fragment implements View.OnClick
                 Log.d("AverageConsumption", averageConsumption.toString());
             }
         });
-
-
 
         txvGeneralAverage = (TextView) view.findViewById(R.id.txv_averageConsumption_generalAverage);
 
@@ -90,41 +96,18 @@ public class AverageConsumptionFragment extends Fragment implements View.OnClick
         });
 
         txvGeneralAverage.setText(new DecimalFormat(".###").format(new AverageConsumption().getGeneralAverage(view.getContext())) + "Km/L");
-
     }
 
+    /**
+     * Busca todas as médias de consumo cadastradas
+     * @param context Contexto da aplicação
+     * @return Lista com as médias de consumo
+     */
     private List<AverageConsumption> getAverageConsumptions(Context context){
         AverageConsumptionDao averageConsumptionDao = new AverageConsumptionDao();
         List<AverageConsumption> averageConsumptionsList = averageConsumptionDao.list(context);
 
         return averageConsumptionsList;
-    }
-
-    @Override
-    public void onClick(View v) {
-
-
-    }
-
-
-    public static void setListViewHeightBasedOnChildren(ListView listView) {
-        ListAdapter listAdapter = listView.getAdapter();
-        if (listAdapter == null) {
-            // pre-condition
-            return;
-        }
-
-        int totalHeight = 0;
-        for (int i = 0; i < listAdapter.getCount(); i++) {
-            View listItem = listAdapter.getView(i, null, listView);
-            listItem.measure(0, 0);
-            totalHeight += listItem.getMeasuredHeight();
-        }
-
-        ViewGroup.LayoutParams params = listView.getLayoutParams();
-        params.height = totalHeight
-                + (listView.getDividerHeight() * (listAdapter.getCount() - 1));
-        listView.setLayoutParams(params);
     }
 
 }

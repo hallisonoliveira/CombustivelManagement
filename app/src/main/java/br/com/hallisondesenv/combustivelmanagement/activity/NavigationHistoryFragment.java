@@ -19,6 +19,8 @@ import br.com.hallisondesenv.combustivelmanagement.dao.NavigationHistoryDao;
 import br.com.hallisondesenv.combustivelmanagement.model.NavigationHistory;
 
 /**
+ * Classe responsável pelo fragment que exibe a lista de histórico de navegação
+ *
  * Created by Hallison on 02/04/2016.
  */
 public class NavigationHistoryFragment extends Fragment {
@@ -30,8 +32,14 @@ public class NavigationHistoryFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-
         setHasOptionsMenu(true);
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        lsvNavigationHistories.setAdapter(adapter);
+
     }
 
     @Override
@@ -41,9 +49,17 @@ public class NavigationHistoryFragment extends Fragment {
         initializeComponents(view);
 
         return view;
+
     }
 
+    /**
+     * Inicialização de todos os views da tela
+     * @param view View do fragment para que os componentes do fragment possam ser encontrados através do findViewById
+     */
     private void initializeComponents(View view){
+
+        navigationHistories = getNavigationHistories(getContext());
+
         lsvNavigationHistories = (ListView) view.findViewById(R.id.lsv_navigationHistory);
         adapter = new NavigationHistoryAdapter(super.getContext(), navigationHistories);
         lsvNavigationHistories.setAdapter(adapter);
@@ -61,9 +77,14 @@ public class NavigationHistoryFragment extends Fragment {
     @Override
     public void onAttach(Context context) {
         super.onAttach(context);
-        navigationHistories = getNavigationHistories(context);
+
     }
 
+    /**
+     * Busca todos os históricos de navegação cadastrados
+     * @param context Contexto da aplicação
+     * @return Lista com todos os históricos cadastrados
+     */
     private List<NavigationHistory> getNavigationHistories(Context context){
         NavigationHistoryDao navigationHistoryDao = new NavigationHistoryDao();
         List<NavigationHistory> navigationHistories = navigationHistoryDao.list(context);

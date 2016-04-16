@@ -21,7 +21,11 @@ import br.com.hallisondesenv.combustivelmanagement.R;
 import br.com.hallisondesenv.combustivelmanagement.dao.VehicleDataDao;
 import br.com.hallisondesenv.combustivelmanagement.model.VehicleData;
 
-
+/**
+ * Classe responsável pelo fragment de cadastro dos dados do veículo
+ *
+ * Created by Hallison on 09/04/2016.
+ */
 public class VehicleDataFragment extends Fragment implements View.OnClickListener {
 
     public static final String TAG = "VehicleDataFragment";
@@ -30,20 +34,14 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
     private EditText edtModel;
     private EditText edtYear;
     private EditText edtFuelCapacity;
-    private ImageButton imgVehicle;
     private FloatingActionButton fabSave;
 
-
-    private int vehicleId;
+    private float remainingVolume = 0;
+    private int vehicleId = 0;
     private boolean isEditableFields = true;
 
 
     public VehicleDataFragment() {
-    }
-
-    public static VehicleDataFragment newInstance() {
-        VehicleDataFragment fragment = new VehicleDataFragment();
-        return fragment;
     }
 
     @Override
@@ -66,15 +64,17 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
         return view;
     }
 
+    /**
+     * Inicialização de todos os views da tela
+     * @param view
+     */
     private void initializeComponents(View view){
         edtFuelCapacity = (EditText) view.findViewById(R.id.edt_vehicleData_fuelCapacity);
 
-        // Inicializando o EditText de Marca
         this.edtManufacturer = (EditText) view.findViewById(R.id.edt_vehicleData_manufacturer);
 
-        // Inicializando o EditText de Modelo
         this.edtModel = (EditText) view.findViewById(R.id.edt_vehicleData_model);
-        // Inicializando o EditText de Ano
+
         this.edtYear = (EditText) view.findViewById(R.id.edt_vehicleData_year);
 
         fabSave = (FloatingActionButton) view.findViewById(R.id.btn_vehicleData_save);
@@ -82,23 +82,29 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
 
     }
 
+    /**
+     * Carrega os dados do veículo, se já houver e preenche os campos
+     * @param view View do fragment para obter o contexto da aplicação
+     */
     private void loadVehicleData(View view){
-
         VehicleData vehicleData = new VehicleDataDao().findById(view.getContext());
 
+        // Se houver dados de veículo já cadastrados, os campos são preenchidos
         if (vehicleData != null) {
             this.vehicleId = vehicleData.getId();
             this.edtManufacturer.setText(vehicleData.getManufacturer());
             this.edtModel.setText(vehicleData.getModel());
             this.edtYear.setText(String.valueOf(vehicleData.getYear()));
             this.edtFuelCapacity.setText(String.valueOf(vehicleData.getFuelCapacity()));
+            this.remainingVolume = vehicleData.getRemainingVolume();
 
             this.isEditableFields = false;
             setFieldsStatus();
 
+        // Se não houver dados de veículo já cadastrado, uma mensagem é apresentada ao usuário
         } else {
             this.vehicleId = 0;
-            Toast.makeText(view.getContext(), "Nenhum veículo cadastrado.", Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), R.string.info_vehicleData_empty, Toast.LENGTH_SHORT).show();
 
             this.isEditableFields = true;
             setFieldsStatus();
@@ -117,6 +123,14 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
 //        }
     }
 
+    /**
+     * Verifica se os campos da tela estão em branco quando o usuário clica em Salvar
+     * @param manufacturer
+     * @param model
+     * @param year
+     * @param fuelCapacity
+     * @return True se algum dos campos estiver vazio e False se todos os campos estiverem preenchidos
+     */
     private boolean isEmptyFields(String manufacturer, String model, String year, String fuelCapacity) {
         if (TextUtils.isEmpty(manufacturer)) {
             edtManufacturer.requestFocus();
@@ -137,6 +151,10 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
         return false;
     }
 
+    /**
+     * Altera o status dos campos na tela para editável ou não editável.
+     * Os campos são alterados para não editavel quando há dados de veículo cadastrado
+     */
     private void setFieldsStatus(){
         this.edtManufacturer.setEnabled(this.isEditableFields);
         this.edtModel.setEnabled(this.isEditableFields);
@@ -151,15 +169,20 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
 
     }
 
+    /**
+     * Salva os dados do veículo
+     */
     private void saveVehicleData(){
 
         int idToSave;
 
+        // Verifica se os campos na tela estão preenchidos
         if(!isEmptyFields(edtManufacturer.getText().toString(), edtModel.getText().toString(),
                 edtYear.getText().toString(), edtFuelCapacity.getText().toString())) {
 
             if (vehicleId == 0) {
                 idToSave = 1;
+                this.remainingVolume = 0;
             } else {
                 idToSave = vehicleId;
             }
@@ -170,24 +193,21 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
                     edtModel.getText().toString(),
                     Integer.parseInt(edtYear.getText().toString()),
                     Integer.parseInt(edtFuelCapacity.getText().toString()),
-                    0f);
+                    remainingVolume);
 
             try {
                 VehicleDataDao vehicleDataDao = new VehicleDataDao();
                 vehicleDataDao.save(vehicleData, getContext());
 
-                Toast.makeText(super.getContext(), "Veículo salvo com sucesso.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(super.getContext(), R.string.info_vehicle_saved, Toast.LENGTH_SHORT).show();
 
                 this.isEditableFields = false;
                 setFieldsStatus();
 
             } catch (Exception e){
-                Toast.makeText(super.getContext(), "Houve um erro ao salvar os dados do veículo.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(super.getContext(), R.string.error_vehicle_not_saved, Toast.LENGTH_SHORT).show();
                 Log.e(TAG, e.getMessage());
             }
-
-        } else {
-            Log.e(TAG, "Campos obrigatórios em branco.");
         }
     }
 

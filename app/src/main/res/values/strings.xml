@@ -1,23 +1,14 @@
 <resources>
     <string name="app_name">Combustivel Management</string>
-    <string name="maps_api_key">AIzaSyCEFd3IJv7sOGjiimt5RRajttlLZa7domA</string>
 
     <!-- Buttons - General -->
     <string name="btn_save">Salvar</string>
     <string name="btn_vehicleData">Dados do veículo</string>
 
-    <!-- Fuel type -->
-    <string-array name="sta_fuelTypes">
-        <item>Alcool</item>
-        <item>Gasolina</item>
-        <item>Diesel</item>
-        <item>Flex</item>
-    </string-array>
-
     <!-- Home screen information -->
     <string name="title_activity_main">CombustivelManagement</string>
     <string name="main_title_values">Resumo</string>
-    <string name="main_average_concumption">Média de consumo (Km/l)</string>
+    <string name="main_average_consumption">Média de consumo (Km/l)</string>
     <string name="main_spending">Total de gastos (R$)</string>
     <string name="main_remaining_volume">Volume restante (Litros)</string>
     <string name="main_approximate_autonomy">Autonomia aprox. (Km)</string>
@@ -27,37 +18,36 @@
     <string name="menu_title">Manu de funcionalidades</string>
     <string name="menu_home">Principal</string>
     <string name="menu_system">Sistema</string>
-    <string name="menu_settings">Configurações</string>
+    <string name="menu_about">Sobre</string>
     
-    <!-- Error messages -->
-    <string name="error_required_field">Campo obrigatório</string>
+    <!-- Messages -->
+    <string name="error_required_field">Campo obrigatório!</string>
     <string name="error_vehicleData_required">Você deve preencher o cadastro do veículo antes de utilizar as funcionalidades do aplicativo</string>
+    <string name="error_vehicle_not_saved">Houve um erro ao salvar os dados do veículo.</string>
+    <string name="info_vehicle_saved">Veículo salvo com sucesso!</string>
+    <string name="info_vehicleData_empty">Nenhum veículo cadastrado.</string>
+    <string name="info_averageConsumption_saved">Média de consumo cadastrada com sucesso!</string>
+    <string name="error_averageConsumption_notSaved">Houve um erro ao salvar os dados.</string>
+    <string name="info_navigationHistory_saved">Histórico de navegação cadastrado com sucesso!</string>
+    <string name="info_navigationHistory_notSaved">Houve um erro ao salvar os dados.</string>
+
 
     <!-- Average Consumption -->
     <string name="averageConsumption_list_title">Médias de consumo</string>
+    <string name="averageConsumption_list_generalAverage">Média geral de consumo</string>
 
     <!-- Average consumption new -->
     <string name="averageConsumption_new_title">Nova média</string>
     <string name="averageConsumption_date">Data</string>
     <string name="averageConsumption_amountLiters">Quantidade de Litros</string>
     <string name="averageConsumption_priceByLiter">Preço/Litro</string>
-    <string name="averageConsumption_fuelType">Combustível</string>
     <string name="averageConsumption_kilometer">Quilometros rodados</string>
-    <string name="averageConsumption_kmPerLiter">Km/L</string>
-    <string name="averageConsumption_generalAverage">Média geral de consumo</string>
-
-    <!-- Navigation -->
-    <string name="navigation_title">Navegação</string>
+    <string name="averageConsumption_kmPerLiter">Km/l</string>
 
     <!-- Navigation History -->
     <string name="navigationHistory_title">Histórico de navegações</string>
     <string name="navigationHistory_new_date">Data</string>
     <string name="navigationHistory_new_distance">Distância percorrida</string>
-
-
-
-    <!-- Graphics -->
-    <string name="graphics_title">Gráficos</string>
 
     <!-- Vehicle Data -->
     <string name="vehicleData_title">Dados do veículo</string>
@@ -66,11 +56,17 @@
     <string name="vehicleData_vehicle_year">Ano</string>
     <string name="vehicleData_fuelCapacity">Capacidade do tanque</string>
 
+    <!-- About -->
+    <string name="about_title">Sobre</string>
+    <string name="about_author">Hallison Oliveira</string>
+    <string name="about_description">Aplicativo voltado para o controle de gastos e consumo de combustível do seu veículo</string>
+    <string name="about_observation">Aplicativo desenvolvido como projeto final durante o Android Study Jams 2016 promovido pelo Google Developer Group Curitiba (GDG Curitiba)</string>
+
+
     <!-- Dialog -->
     <string name="dialog_exit_question">Deseja sair?</string>
     <string name="dialog_exit_yes">Sim</string>
     <string name="dialog_exit_no">Não</string>
-
 
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>

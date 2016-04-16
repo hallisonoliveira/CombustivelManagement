@@ -26,10 +26,13 @@ import br.com.hallisondesenv.combustivelmanagement.model.VehicleData;
 import br.com.hallisondesenv.combustivelmanagement.util.MaskUtil;
 
 /**
- * Created by Hallison on 07/04/2016.
+ * Classe responsável pela Activity AverageConsumption
+ *
+ * Created by Hallison Oliveira on 07/04/2016.
  */
 public class AverageConsumptionActivity extends AppCompatActivity {
 
+    // TAG para o log
     private static final String TAG = "AverageConsumption";
 
     private EditText edtDate;
@@ -50,6 +53,9 @@ public class AverageConsumptionActivity extends AppCompatActivity {
 
     }
 
+    /**
+     * Inicialização de todos os views da activity
+     */
     private void initializeComponents(){
 
         edtDate = (EditText) findViewById(R.id.edt_newAverageConsumption_date);
@@ -68,6 +74,14 @@ public class AverageConsumptionActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Verifica se os campos da tela estão em branco quando o usuário clica em Salvar
+     * @param date
+     * @param amountLiters
+     * @param priceByLiter
+     * @param kilometer
+     * @return True se algum dos campos estiver vazio e False se todos os campos estiverem preenchidos
+     */
     private boolean isEmptyFields(String date, String amountLiters, String priceByLiter, String kilometer) {
         if (TextUtils.isEmpty(date)) {
             edtDate.requestFocus();
@@ -88,8 +102,12 @@ public class AverageConsumptionActivity extends AppCompatActivity {
         return false;
     }
 
+    /**
+     * Salva a nova média de consumo
+     */
     private void saveAverageConsumption(){
 
+        // Verificando se os campos estão preenchidos
         if(!isEmptyFields(
                 edtDate.getText().toString(),
                 edtAmountLiters.getText().toString(),
@@ -98,6 +116,7 @@ public class AverageConsumptionActivity extends AppCompatActivity {
 
             Float priceByLiter = MaskUtil.convertStringToFloat(edtPriceByLiter.getText().toString());
 
+            // Criando uma nova instancia de averageConsumption para ser salva posteriormente
             AverageConsumption averageConsumption = new AverageConsumption(
                     new AverageConsumption().getNextKey(this),
                     edtDate.getText().toString(),
@@ -106,21 +125,22 @@ public class AverageConsumptionActivity extends AppCompatActivity {
                     Float.parseFloat(edtKilometer.getText().toString())
             );
 
-//            try{
+            try{
 
+                // Cria uma instancia de VehicleDataDao utilizada para persistencia na base de dados
                 VehicleDataDao vehicleDataDao = new VehicleDataDao();
                 vehicleDataDao.fillTank(this);
 
                 AverageConsumptionDao averageConsumptionDao = new AverageConsumptionDao();
                 averageConsumptionDao.save(averageConsumption, this);
-                Toast.makeText(this, "Média de consumo cadastrada com sucesso.", Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.info_averageConsumption_saved, Toast.LENGTH_SHORT).show();
 
                 this.finish();
 
-//            } catch (Exception e){
-//                Toast.makeText(this, "Houve um erro ao salvar os dados.", Toast.LENGTH_SHORT).show();
-//                Log.e(TAG, e.getMessage());
-//            }
+            } catch (Exception e){
+                Toast.makeText(this, R.string.error_averageConsumption_notSaved, Toast.LENGTH_SHORT).show();
+                Log.e(TAG, e.getMessage());
+            }
 
         }
 

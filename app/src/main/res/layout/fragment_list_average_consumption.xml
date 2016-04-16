@@ -75,7 +75,7 @@
             style="@style/style_list_values"
             android:textAlignment="textStart"
             android:textStyle="bold"
-            android:text="@string/averageConsumption_generalAverage"/>
+            android:text="@string/averageConsumption_list_generalAverage"/>
 
         <TextView
             android:id="@+id/txv_averageConsumption_generalAverage"
