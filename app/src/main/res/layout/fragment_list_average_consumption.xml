@@ -53,9 +53,7 @@
         android:layout_height="0dp"
         android:layout_weight="9"
         android:layout_marginTop="8dp"
-        android:layout_below="@+id/lyt_header_list"
-        android:clickable="true"
-        android:contextClickable="true">
+        android:layout_below="@+id/lyt_header_list">
     </ListView>
 
 

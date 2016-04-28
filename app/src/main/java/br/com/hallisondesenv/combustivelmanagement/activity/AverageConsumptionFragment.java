@@ -76,6 +76,8 @@ public class AverageConsumptionFragment extends Fragment {
         lsvAverageConsumptions = (ListView) view.findViewById(R.id.lsv_averageComsumption);
         adapter = new AverageConsumptionAdapter(super.getContext(), averageConsumptions);
         lsvAverageConsumptions.setAdapter(adapter);
+        lsvAverageConsumptions.setClickable(true);
+
         lsvAverageConsumptions.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {

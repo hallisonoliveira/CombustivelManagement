@@ -59,9 +59,4 @@ public class AverageConsumptionAdapter extends BaseAdapter {
         return line;
     }
 
-    static class ViewHolder{
-        TextView txvDate;
-        TextView txvAmountLiters;
-        TextView txvAverage;
-    }
 }
