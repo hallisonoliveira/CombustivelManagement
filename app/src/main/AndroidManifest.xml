@@ -21,7 +21,7 @@
 
         <activity
             android:name=".activity.AverageConsumptionActivity"
-            android:label="@string/averageConsumption_list_title"
+            android:label="@string/average_consumption_list_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
@@ -41,7 +41,7 @@
 
         <activity
             android:name=".activity.NavigationHistoryActivity"
-            android:label="@string/navigationHistory_title"
+            android:label="@string/navigation_history_title"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data

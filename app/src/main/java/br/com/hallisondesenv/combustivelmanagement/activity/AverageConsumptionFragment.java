@@ -73,7 +73,7 @@ public class AverageConsumptionFragment extends Fragment {
      * @param view View do fragment para que os componentes do fragment possam ser encontrados através do findViewById
      */
     private void initializeComponents(View view){
-        lsvAverageConsumptions = (ListView) view.findViewById(R.id.lsv_averageComsumption);
+        lsvAverageConsumptions = (ListView) view.findViewById(R.id.lsv_average_consumption);
         adapter = new AverageConsumptionAdapter(super.getContext(), averageConsumptions);
         lsvAverageConsumptions.setAdapter(adapter);
         lsvAverageConsumptions.setClickable(true);
@@ -86,9 +86,9 @@ public class AverageConsumptionFragment extends Fragment {
             }
         });
 
-        txvGeneralAverage = (TextView) view.findViewById(R.id.txv_averageConsumption_generalAverage);
+        txvGeneralAverage = (TextView) view.findViewById(R.id.txv_average_consumption_general_average);
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_add_averageComsumption);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_add_average_consumption);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -11,7 +11,7 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/item_averageConsumption_date"
+            android:id="@+id/item_average_consumption_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -21,7 +21,7 @@
 
 
         <TextView
-            android:id="@+id/item_averageConsumption_amountLiters"
+            android:id="@+id/item_average_consumption_amount_liters"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -31,7 +31,7 @@
             android:numeric="decimal" />
 
         <TextView
-            android:id="@+id/item_averageConsumption_average"
+            android:id="@+id/item_average_consumption_average"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"

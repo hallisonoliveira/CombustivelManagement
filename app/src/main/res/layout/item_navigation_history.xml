@@ -11,24 +11,21 @@
         android:orientation="horizontal">
 
         <TextView
-            android:id="@+id/item_navigationHistory_date"
+            android:id="@+id/item_navigation_history_date"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            style="@style/style_list_values"
-            android:text="10/10/2010"/>
+            style="@style/style_list_values"/>
 
         <TextView
-            android:id="@+id/item_navigationHistory_distance"
+            android:id="@+id/item_navigation_history_distance"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
             style="@style/style_list_values"
             android:textAlignment="viewEnd"
             android:numeric="decimal"
-            android:maxLength="6"
-            android:text="12Km/l"
-            />
+            android:maxLength="6"/>
     </LinearLayout>
 
 </RelativeLayout>

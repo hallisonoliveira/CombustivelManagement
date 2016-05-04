@@ -4,16 +4,16 @@
     android:layout_height="match_parent">
 
     <TextView
-        android:id="@+id/txv_navigationHistory_title"
+        android:id="@+id/txv_navigation_history_title"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:textAlignment="center"
         style="@style/style_screen_titles"
-        android:text="@string/navigationHistory_title"/>
+        android:text="@string/navigation_history_title"/>
 
     <ListView
-        android:id="@+id/lsv_navigationHistory"
-        android:layout_below="@+id/txv_navigationHistory_title"
+        android:id="@+id/lsv_navigation_history"
+        android:layout_below="@+id/txv_navigation_history_title"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:headerDividersEnabled="true">
@@ -21,13 +21,12 @@
     </ListView>
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_add_navigationHistory"
+        android:id="@+id/btn_add_navigation_history"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="16dp"
         android:src="@drawable/ic_add"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"/>
-
 
 </RelativeLayout>

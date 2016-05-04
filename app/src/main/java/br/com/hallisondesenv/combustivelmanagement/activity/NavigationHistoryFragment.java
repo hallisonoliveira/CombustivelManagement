@@ -60,11 +60,11 @@ public class NavigationHistoryFragment extends Fragment {
 
         navigationHistories = getNavigationHistories(getContext());
 
-        lsvNavigationHistories = (ListView) view.findViewById(R.id.lsv_navigationHistory);
+        lsvNavigationHistories = (ListView) view.findViewById(R.id.lsv_navigation_history);
         adapter = new NavigationHistoryAdapter(super.getContext(), navigationHistories);
         lsvNavigationHistories.setAdapter(adapter);
 
-        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_add_navigationHistory);
+        FloatingActionButton fab = (FloatingActionButton) view.findViewById(R.id.btn_add_navigation_history);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {

@@ -60,10 +60,10 @@ public class HomeFragment extends Fragment {
         this.imgApp = (ImageView) view.findViewById(R.id.img_main);
         this.imgApp.setImageResource(R.mipmap.comb_management);
 
-        this.txvGeneralAverage = (TextView) view.findViewById(R.id.txv_home_generalAverage);
-        this.txvApproximateAutonomy = (TextView) view.findViewById(R.id.txv_home_approximateAutonomy);
-        this.txvRemainingVolume = (TextView) view.findViewById(R.id.txv_home_remainingVolume);
-        this.txvAverageSpending = (TextView) view.findViewById(R.id.txv_home_averageSpending);
+        this.txvGeneralAverage = (TextView) view.findViewById(R.id.txv_home_general_average);
+        this.txvApproximateAutonomy = (TextView) view.findViewById(R.id.txv_home_approximate_autonomy);
+        this.txvRemainingVolume = (TextView) view.findViewById(R.id.txv_home_remaining_volume);
+        this.txvAverageSpending = (TextView) view.findViewById(R.id.txv_home_average_spending);
 
         // Verifica se há dados de veículo cadastrados
         // Se já houver dados do veículo, busca as informações e apresenta na tela com as devidas máscaras
@@ -75,12 +75,12 @@ public class HomeFragment extends Fragment {
 
         // Se não houver, informa ao usuário que é necessário cadastrar os dados do veículo
         } else {
-            Toast.makeText(getContext(), R.string.error_vehicleData_required, Toast.LENGTH_LONG).show();
+            Toast.makeText(getContext(), R.string.error_vehicle_data_required, Toast.LENGTH_LONG).show();
 
-            this.txvGeneralAverage.setText(R.string.main_noValue);
-            this.txvApproximateAutonomy.setText(R.string.main_noValue);
-            this.txvRemainingVolume.setText(R.string.main_noValue);
-            this.txvAverageSpending.setText(R.string.main_noValue);
+            this.txvGeneralAverage.setText(R.string.main_no_value);
+            this.txvApproximateAutonomy.setText(R.string.main_no_value);
+            this.txvRemainingVolume.setText(R.string.main_no_value);
+            this.txvAverageSpending.setText(R.string.main_no_value);
         }
 
     }

@@ -52,10 +52,10 @@ public class NavigationHistoryActivity extends AppCompatActivity {
      */
     private void initializeComponents(){
 
-        edtDate = (EditText) findViewById(R.id.edt_newNavigationHistory_date);
-        edtDistance = (EditText) findViewById(R.id.edt_newNavigationHistory_distante);
+        edtDate = (EditText) findViewById(R.id.edt_new_navigation_history_date);
+        edtDistance = (EditText) findViewById(R.id.edt_new_navigation_history_distance);
 
-        fabSave = (FloatingActionButton) findViewById(R.id.btn_save_navigationHistory);
+        fabSave = (FloatingActionButton) findViewById(R.id.btn_save_navigation_history);
         fabSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -110,12 +110,12 @@ public class NavigationHistoryActivity extends AppCompatActivity {
 
                 NavigationHistoryDao navigationHistoryDao = new NavigationHistoryDao();
                 navigationHistoryDao.save(navigationHistory, this);
-                Toast.makeText(this, R.string.info_navigationHistory_saved, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.info_navigation_history_saved, Toast.LENGTH_SHORT).show();
 
                 this.finish();
 
             } catch (Exception e){
-                Toast.makeText(this, R.string.info_navigationHistory_notSaved, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.info_navigation_history_not_saved, Toast.LENGTH_SHORT).show();
                 Log.e(TAG, e.getMessage());
             }
 

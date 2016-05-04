@@ -3,7 +3,7 @@
 
     <!-- Buttons - General -->
     <string name="btn_save">Salvar</string>
-    <string name="btn_vehicleData">Dados do veículo</string>
+    <string name="btn_vehicle_data">Dados do veículo</string>
 
     <!-- Home screen information -->
     <string name="title_activity_main">CombustivelManagement</string>
@@ -12,7 +12,7 @@
     <string name="main_spending">Total de gastos (R$)</string>
     <string name="main_remaining_volume">Volume restante (Litros)</string>
     <string name="main_approximate_autonomy">Autonomia aprox. (Km)</string>
-    <string name="main_noValue">0,0</string>
+    <string name="main_no_value">0,0</string>
 
     <!-- Menu -->
     <string name="menu_title">Manu de funcionalidades</string>
@@ -22,39 +22,39 @@
     
     <!-- Messages -->
     <string name="error_required_field">Campo obrigatório!</string>
-    <string name="error_vehicleData_required">Você deve preencher o cadastro do veículo antes de utilizar as funcionalidades do aplicativo</string>
+    <string name="error_vehicle_data_required">Você deve preencher o cadastro do veículo antes de utilizar as funcionalidades do aplicativo</string>
     <string name="error_vehicle_not_saved">Houve um erro ao salvar os dados do veículo.</string>
     <string name="info_vehicle_saved">Veículo salvo com sucesso!</string>
-    <string name="info_vehicleData_empty">Nenhum veículo cadastrado.</string>
-    <string name="info_averageConsumption_saved">Média de consumo cadastrada com sucesso!</string>
-    <string name="error_averageConsumption_notSaved">Houve um erro ao salvar os dados.</string>
-    <string name="info_navigationHistory_saved">Histórico de navegação cadastrado com sucesso!</string>
-    <string name="info_navigationHistory_notSaved">Houve um erro ao salvar os dados.</string>
+    <string name="info_vehicle_data_empty">Nenhum veículo cadastrado.</string>
+    <string name="info_average_consumption_saved">Média de consumo cadastrada com sucesso!</string>
+    <string name="error_average_consumption_not_saved">Houve um erro ao salvar os dados.</string>
+    <string name="info_navigation_history_saved">Histórico de navegação cadastrado com sucesso!</string>
+    <string name="info_navigation_history_not_saved">Houve um erro ao salvar os dados.</string>
 
 
     <!-- Average Consumption -->
-    <string name="averageConsumption_list_title">Médias de consumo</string>
-    <string name="averageConsumption_list_generalAverage">Média geral de consumo</string>
+    <string name="average_consumption_list_title">Médias de consumo</string>
+    <string name="average_consumption_list_general_average">Média geral de consumo</string>
 
     <!-- Average consumption new -->
-    <string name="averageConsumption_new_title">Nova média</string>
-    <string name="averageConsumption_date">Data</string>
-    <string name="averageConsumption_amountLiters">Quantidade de Litros</string>
-    <string name="averageConsumption_priceByLiter">Preço/Litro</string>
-    <string name="averageConsumption_kilometer">Quilometros rodados</string>
-    <string name="averageConsumption_kmPerLiter">Km/l</string>
+    <string name="average_consumption_new_title">Nova média</string>
+    <string name="average_consumption_date">Data</string>
+    <string name="average_consumption_amount_liters">Quantidade de Litros</string>
+    <string name="average_consumption_price_by_liter">Preço/Litro</string>
+    <string name="average_consumption_kilometer">Quilometros rodados</string>
+    <string name="average_consumption_km_per_liter">Km/l</string>
 
     <!-- Navigation History -->
-    <string name="navigationHistory_title">Histórico de navegações</string>
-    <string name="navigationHistory_new_date">Data</string>
-    <string name="navigationHistory_new_distance">Distância percorrida</string>
+    <string name="navigation_history_title">Histórico de navegações</string>
+    <string name="navigation_history_new_date">Data</string>
+    <string name="navigation_history_new_distance">Distância percorrida</string>
 
     <!-- Vehicle Data -->
-    <string name="vehicleData_title">Dados do veículo</string>
-    <string name="vehicleData_vehicle_manufacturer">Marca</string>
-    <string name="vehicleData_vehicle_model">Modelo</string>
-    <string name="vehicleData_vehicle_year">Ano</string>
-    <string name="vehicleData_fuelCapacity">Capacidade do tanque</string>
+    <string name="vehicle_data_title">Dados do veículo</string>
+    <string name="vehicle_data_vehicle_manufacturer">Marca</string>
+    <string name="vehicle_data_vehicle_model">Modelo</string>
+    <string name="vehicle_data_vehicle_year">Ano</string>
+    <string name="vehicle_data_fuel_capacity">Capacidade do tanque</string>
 
     <!-- About -->
     <string name="about_title">Sobre</string>

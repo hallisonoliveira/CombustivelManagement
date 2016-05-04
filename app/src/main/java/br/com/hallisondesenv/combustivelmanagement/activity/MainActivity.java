@@ -95,7 +95,7 @@ public class MainActivity extends AppCompatActivity
         this.imgMenu = (ImageView) findViewById(R.id.img_menu);
         this.imgMenu.setImageResource(R.mipmap.comb_management);
 
-        this.navVehicleManufacturer = (TextView) findViewById(R.id.txt_nav_manufacturerModel);
+        this.navVehicleManufacturer = (TextView) findViewById(R.id.txt_nav_manufacturer_model);
     }
 
     /**
@@ -137,7 +137,7 @@ public class MainActivity extends AppCompatActivity
 
         averageConsumptionFragment = new AverageConsumptionFragment();
 
-        toolbar.setTitle(getResources().getString(R.string.averageConsumption_list_title));
+        toolbar.setTitle(getResources().getString(R.string.average_consumption_list_title));
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameContent, averageConsumptionFragment)
                 .addToBackStack(null)
@@ -152,7 +152,7 @@ public class MainActivity extends AppCompatActivity
 
         detachFragments();
 
-        toolbar.setTitle(getResources().getString(R.string.vehicleData_title));
+        toolbar.setTitle(getResources().getString(R.string.vehicle_data_title));
         getSupportFragmentManager().beginTransaction()
                 .replace(R.id.frameContent, new VehicleDataFragment())
                 .addToBackStack(null)
@@ -196,7 +196,7 @@ public class MainActivity extends AppCompatActivity
             isInHome = false;
             detachFragments();
             navigationHistoryFragment = new NavigationHistoryFragment();
-            toolbar.setTitle(getResources().getString(R.string.navigationHistory_title));
+            toolbar.setTitle(getResources().getString(R.string.navigation_history_title));
             getSupportFragmentManager().beginTransaction()
                     .replace(R.id.frameContent, navigationHistoryFragment)
                     .addToBackStack(null)

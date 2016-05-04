@@ -47,13 +47,13 @@ public class AverageConsumptionAdapter extends BaseAdapter {
 
         View line = LayoutInflater.from(context).inflate(R.layout.item_average_consumption, null);
 
-        TextView txvDate = (TextView) line.findViewById(R.id.item_averageConsumption_date);
+        TextView txvDate = (TextView) line.findViewById(R.id.item_average_consumption_date);
         txvDate.setText(averageConsumption.getDate());
 
-        TextView txvAmountLiters = (TextView) line.findViewById(R.id.item_averageConsumption_amountLiters);
+        TextView txvAmountLiters = (TextView) line.findViewById(R.id.item_average_consumption_amount_liters);
         txvAmountLiters.setText(new DecimalFormat(".###").format(averageConsumption.getAmountLiters()));
 
-        TextView txvAverage = (TextView) line.findViewById(R.id.item_averageConsumption_average);
+        TextView txvAverage = (TextView) line.findViewById(R.id.item_average_consumption_average);
         txvAverage.setText(new DecimalFormat(".###").format(averageConsumption.getAverageConsumption()));
 
         return line;

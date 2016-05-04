@@ -46,7 +46,7 @@ public class AverageConsumptionActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_new_average_consumption);
 
-        Toolbar toolbar = (Toolbar) findViewById(R.id.tbr_newAverageConsumption);
+        Toolbar toolbar = (Toolbar) findViewById(R.id.tbr_new_average_consumption);
         setSupportActionBar(toolbar);
 
         initializeComponents();
@@ -58,14 +58,14 @@ public class AverageConsumptionActivity extends AppCompatActivity {
      */
     private void initializeComponents(){
 
-        edtDate = (EditText) findViewById(R.id.edt_newAverageConsumption_date);
-        edtAmountLiters = (EditText) findViewById(R.id.edt_newAverageConsumption_amountLiters);
-        edtKilometer = (EditText) findViewById(R.id.edt_newAverageConsumption_kilometer);
+        edtDate = (EditText) findViewById(R.id.edt_new_average_consumption_date);
+        edtAmountLiters = (EditText) findViewById(R.id.edt_new_average_consumption_amount_liters);
+        edtKilometer = (EditText) findViewById(R.id.edt_new_average_consumption_kilometer);
 
-        edtPriceByLiter = (EditText) findViewById(R.id.edt_newAverageConsumption_priceByLiter);
+        edtPriceByLiter = (EditText) findViewById(R.id.edt_new_average_consumption_price_by_liter);
         edtPriceByLiter.addTextChangedListener(MaskUtil.insertMask(edtPriceByLiter));
 
-        fabSave = (FloatingActionButton) findViewById(R.id.btn_save_averageComsumption);
+        fabSave = (FloatingActionButton) findViewById(R.id.btn_save_average_comsumption);
         fabSave.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -133,12 +133,12 @@ public class AverageConsumptionActivity extends AppCompatActivity {
 
                 AverageConsumptionDao averageConsumptionDao = new AverageConsumptionDao();
                 averageConsumptionDao.save(averageConsumption, this);
-                Toast.makeText(this, R.string.info_averageConsumption_saved, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.info_average_consumption_saved, Toast.LENGTH_SHORT).show();
 
                 this.finish();
 
             } catch (Exception e){
-                Toast.makeText(this, R.string.error_averageConsumption_notSaved, Toast.LENGTH_SHORT).show();
+                Toast.makeText(this, R.string.error_average_consumption_not_saved, Toast.LENGTH_SHORT).show();
                 Log.e(TAG, e.getMessage());
             }
 

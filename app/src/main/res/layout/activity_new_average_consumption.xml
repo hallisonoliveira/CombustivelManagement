@@ -12,7 +12,7 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
         <android.support.v7.widget.Toolbar
-            android:id="@+id/tbr_newAverageConsumption"
+            android:id="@+id/tbr_new_average_consumption"
             android:layout_width="match_parent"
             android:layout_height="?attr/actionBarSize"
             android:background="?attr/colorPrimary"
@@ -26,69 +26,69 @@
         android:layout_margin="16dp">
 
         <TextView
-            android:id="@+id/txv_newAverageConsumption_date"
+            android:id="@+id/txv_new_average_consumption_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/averageConsumption_date"/>
+            android:text="@string/average_consumption_date"/>
 
         <EditText
-            android:id="@+id/edt_newAverageConsumption_date"
+            android:id="@+id/edt_new_average_consumption_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txv_newAverageConsumption_date"
+            android:layout_below="@+id/txv_new_average_consumption_date"
             style="@style/style_editText"
             android:maxLength="10"
             android:inputType="date"
             android:editable="true" />
 
         <TextView
-            android:id="@+id/txv_newAverageConsumption_amountLiters"
+            android:id="@+id/txv_new_average_consumption_amount_liters"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_newAverageConsumption_date"
-            android:text="@string/averageConsumption_amountLiters"/>
+            android:layout_below="@id/edt_new_average_consumption_date"
+            android:text="@string/average_consumption_amount_liters"/>
 
         <EditText
-            android:id="@+id/edt_newAverageConsumption_amountLiters"
+            android:id="@+id/edt_new_average_consumption_amount_liters"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txv_newAverageConsumption_amountLiters"
+            android:layout_below="@id/txv_new_average_consumption_amount_liters"
             android:inputType="numberDecimal"
             style="@style/style_editText"/>
 
         <TextView
-            android:id="@+id/txv_newAverageConsumption_priceByLiter"
+            android:id="@+id/txv_new_average_consumption_price_by_liter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_newAverageConsumption_amountLiters"
-            android:text="@string/averageConsumption_priceByLiter"/>
+            android:layout_below="@id/edt_new_average_consumption_amount_liters"
+            android:text="@string/average_consumption_price_by_liter"/>
 
         <EditText
-            android:id="@+id/edt_newAverageConsumption_priceByLiter"
+            android:id="@+id/edt_new_average_consumption_price_by_liter"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txv_newAverageConsumption_priceByLiter"
+            android:layout_below="@id/txv_new_average_consumption_price_by_liter"
             android:inputType="numberDecimal"
             style="@style/style_editText"/>
 
         <TextView
-            android:id="@+id/txv_newAverageConsumption_kilometer"
+            android:id="@+id/txv_new_average_consumption_kilometer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_newAverageConsumption_priceByLiter"
+            android:layout_below="@id/edt_new_average_consumption_price_by_liter"
             android:inputType="numberDecimal"
-            android:text="@string/averageConsumption_kilometer"/>
+            android:text="@string/average_consumption_kilometer"/>
 
         <EditText
-            android:id="@+id/edt_newAverageConsumption_kilometer"
+            android:id="@+id/edt_new_average_consumption_kilometer"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txv_newAverageConsumption_kilometer"
+            android:layout_below="@id/txv_new_average_consumption_kilometer"
             android:inputType="numberDecimal"
             style="@style/style_editText"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/btn_save_averageComsumption"
+            android:id="@+id/btn_save_average_comsumption"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_save_white_24dp"

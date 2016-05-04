@@ -34,7 +34,7 @@
             android:layout_centerHorizontal="true"/>
 
         <TextView
-            android:id="@+id/txv_about_appName"
+            android:id="@+id/txv_about_app_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_below="@id/img_about"
@@ -44,10 +44,10 @@
             android:text="@string/app_name"/>
 
         <TextView
-            android:id="@+id/txv_about_authorName"
+            android:id="@+id/txv_about_author_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txv_about_appName"
+            android:layout_below="@id/txv_about_app_name"
             android:textAlignment="center"
             android:textStyle="bold"
             android:textSize="18sp"
@@ -55,10 +55,10 @@
             android:text="@string/about_author"/>
 
         <TextView
-            android:id="@+id/txv_about_appDescription"
+            android:id="@+id/txv_about_app_description"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txv_about_authorName"
+            android:layout_below="@id/txv_about_author_name"
             android:textAlignment="center"
             android:textSize="16sp"
             android:layout_marginBottom="16dp"

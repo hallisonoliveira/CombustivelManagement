@@ -15,7 +15,7 @@
         <item
             android:id="@+id/nav_navigation_history"
             android:icon="@drawable/ic_history_black_24dp"
-            android:title="@string/navigationHistory_title" />
+            android:title="@string/navigation_history_title" />
 
         <!--item
             android:id="@+id/nav_graphics"
@@ -25,12 +25,12 @@
         <item
             android:id="@+id/nav_average_consumption"
             android:icon="@drawable/ic_local_gas_station_black_24dp"
-            android:title="@string/averageConsumption_list_title" />
+            android:title="@string/average_consumption_list_title" />
 
         <item
             android:id="@+id/nav_vehicleData"
             android:icon="@drawable/ic_directions_car_black_24dp"
-            android:title="@string/vehicleData_title" />
+            android:title="@string/vehicle_data_title" />
     </group>
 
     <item android:title="@string/menu_system">

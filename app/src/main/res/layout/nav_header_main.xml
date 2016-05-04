@@ -19,7 +19,7 @@
         android:layout_gravity="left"/>
 
     <TextView
-        android:id="@+id/txt_nav_manufacturerModel"
+        android:id="@+id/txt_nav_manufacturer_model"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/style_menu_vehicleInfo"
@@ -28,7 +28,7 @@
         android:text="@null"/>
 
     <TextView
-        android:id="@+id/txt_nav_fuelType"
+        android:id="@+id/txt_nav_fuel_type"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/style_menu_vehicleInfo"

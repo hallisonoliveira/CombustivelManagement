@@ -2,49 +2,49 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:id="@+id/fragmentVehicleData"
+    android:id="@+id/fragment_vehicle_data"
     android:gravity="left"
     android:orientation="vertical"
     tools:context=".activity.VehicleDataFragment">
 
     <TextView
-        android:id="@+id/txv_vehicleData_manufacturer"
+        android:id="@+id/txv_vehicle_data_manufacturer"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vehicleData_vehicle_manufacturer"/>
+        android:text="@string/vehicle_data_vehicle_manufacturer"/>
 
     <EditText
-        android:id="@+id/edt_vehicleData_manufacturer"
-        android:layout_below="@id/txv_vehicleData_manufacturer"
+        android:id="@+id/edt_vehicle_data_manufacturer"
+        android:layout_below="@id/txv_vehicle_data_manufacturer"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         style="@style/style_editText"
         android:layout_centerHorizontal="true" />
 
     <TextView
-        android:id="@+id/txv_vehicleData_model"
+        android:id="@+id/txv_vehicle_data_model"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vehicleData_vehicle_model"
-        android:layout_below="@+id/edt_vehicleData_manufacturer" />
+        android:text="@string/vehicle_data_vehicle_model"
+        android:layout_below="@+id/edt_vehicle_data_manufacturer" />
 
     <EditText
-        android:id="@+id/edt_vehicleData_model"
+        android:id="@+id/edt_vehicle_data_model"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerHorizontal="true"
         style="@style/style_editText"
-        android:layout_below="@+id/txv_vehicleData_model"/>
+        android:layout_below="@+id/txv_vehicle_data_model"/>
 
     <TextView
         android:id="@+id/txv_vehicleData_year"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/vehicleData_vehicle_year"
-        android:layout_below="@id/edt_vehicleData_model"/>
+        android:text="@string/vehicle_data_vehicle_year"
+        android:layout_below="@id/edt_vehicle_data_model"/>
 
     <EditText
-        android:id="@+id/edt_vehicleData_year"
+        android:id="@+id/edt_vehicle_data_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:inputType="number"
@@ -54,11 +54,11 @@
         android:layout_below="@id/txv_vehicleData_year"/>
 
     <TextView
-        android:id="@+id/txv_vehicleData_fuelType"
-        android:layout_below="@+id/edt_vehicleData_year"
+        android:id="@+id/txv_vehicle_data_fuel_type"
+        android:layout_below="@+id/edt_vehicle_data_year"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/vehicleData_fuelCapacity"/>
+        android:text="@string/vehicle_data_fuel_capacity"/>
 
     <EditText
         android:id="@+id/edt_vehicleData_fuelCapacity"
@@ -68,11 +68,11 @@
         android:maxLength="4"
         android:numeric="integer"
         style="@style/style_editText"
-        android:layout_below="@id/txv_vehicleData_fuelType"/>
+        android:layout_below="@id/txv_vehicle_data_fuel_type"/>
 
 
     <android.support.design.widget.FloatingActionButton
-        android:id="@+id/btn_vehicleData_save"
+        android:id="@+id/btn_vehicle_data_save"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/ic_save_white_24dp"

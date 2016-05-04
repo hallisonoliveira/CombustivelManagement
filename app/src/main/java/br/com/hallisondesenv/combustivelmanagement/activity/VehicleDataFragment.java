@@ -71,13 +71,13 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
     private void initializeComponents(View view){
         edtFuelCapacity = (EditText) view.findViewById(R.id.edt_vehicleData_fuelCapacity);
 
-        this.edtManufacturer = (EditText) view.findViewById(R.id.edt_vehicleData_manufacturer);
+        this.edtManufacturer = (EditText) view.findViewById(R.id.edt_vehicle_data_manufacturer);
 
-        this.edtModel = (EditText) view.findViewById(R.id.edt_vehicleData_model);
+        this.edtModel = (EditText) view.findViewById(R.id.edt_vehicle_data_model);
 
-        this.edtYear = (EditText) view.findViewById(R.id.edt_vehicleData_year);
+        this.edtYear = (EditText) view.findViewById(R.id.edt_vehicle_data_year);
 
-        fabSave = (FloatingActionButton) view.findViewById(R.id.btn_vehicleData_save);
+        fabSave = (FloatingActionButton) view.findViewById(R.id.btn_vehicle_data_save);
         fabSave.setOnClickListener(this);
 
     }
@@ -104,7 +104,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
         // Se não houver dados de veículo já cadastrado, uma mensagem é apresentada ao usuário
         } else {
             this.vehicleId = 0;
-            Toast.makeText(view.getContext(), R.string.info_vehicleData_empty, Toast.LENGTH_SHORT).show();
+            Toast.makeText(view.getContext(), R.string.info_vehicle_data_empty, Toast.LENGTH_SHORT).show();
 
             this.isEditableFields = true;
             setFieldsStatus();
@@ -214,7 +214,7 @@ public class VehicleDataFragment extends Fragment implements View.OnClickListene
     @Override
     public void onClick(View v) {
         switch (v.getId()){
-            case R.id.btn_vehicleData_save:{
+            case R.id.btn_vehicle_data_save:{
                 if (this.isEditableFields){
                     saveVehicleData();
                 } else {

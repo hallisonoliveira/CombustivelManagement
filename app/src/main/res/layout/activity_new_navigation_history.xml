@@ -26,38 +26,38 @@
         android:layout_margin="16dp">
 
         <TextView
-            android:id="@+id/txv_newNavigationHistory_date"
+            android:id="@+id/txv_new_navigation_history_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/navigationHistory_new_date"/>
+            android:text="@string/navigation_history_new_date"/>
 
         <EditText
-            android:id="@+id/edt_newNavigationHistory_date"
+            android:id="@+id/edt_new_navigation_history_date"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@+id/txv_newNavigationHistory_date"
+            android:layout_below="@+id/txv_new_navigation_history_date"
             style="@style/style_editText"
             android:inputType="date"
             android:maxLength="10"
             android:editable="true" />
 
         <TextView
-            android:id="@+id/txv_newNavigationHistory_distance"
+            android:id="@+id/txv_new_navigation_history_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/edt_newNavigationHistory_date"
-            android:text="@string/navigationHistory_new_distance"/>
+            android:layout_below="@id/edt_new_navigation_history_date"
+            android:text="@string/navigation_history_new_distance"/>
 
         <EditText
-            android:id="@+id/edt_newNavigationHistory_distante"
+            android:id="@+id/edt_new_navigation_history_distance"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_below="@id/txv_newNavigationHistory_distance"
+            android:layout_below="@id/txv_new_navigation_history_distance"
             android:numeric="integer"
             style="@style/style_editText"/>
 
         <android.support.design.widget.FloatingActionButton
-            android:id="@+id/btn_save_navigationHistory"
+            android:id="@+id/btn_save_navigation_history"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:src="@drawable/ic_save_white_24dp"
