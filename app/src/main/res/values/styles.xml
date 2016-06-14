@@ -56,4 +56,14 @@
     </style>
 
 
+    <!-- Novos estilos - Todos os estilos seguirão esse padrão e serão alterados de acordo com a necessidade -->
+
+    <style name="all_edittext">
+        <item name="android:layout_marginBottom">16dp</item>
+        <item name="android:layout_marginTop">8dp</item>
+        <item name="android:textSize">18sp</item>
+        <item name="android:singleLine">true</item>
+    </style>
+
+
 </resources>

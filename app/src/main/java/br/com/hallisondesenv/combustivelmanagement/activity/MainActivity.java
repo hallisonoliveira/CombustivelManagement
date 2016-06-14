@@ -146,7 +146,9 @@ public class MainActivity extends AppCompatActivity
 
     /**
      * Abre o fragment VehicleData
+     * Sera removido em breve
      */
+    @Deprecated
     private void openVehicleDataFragment(){
         isInHome = false;
 
@@ -157,6 +159,11 @@ public class MainActivity extends AppCompatActivity
                 .replace(R.id.frameContent, new VehicleDataFragment())
                 .addToBackStack(null)
                 .commit();
+    }
+
+    private void openVehicleDataActivity(){
+        Intent vehicleDataIntent = new Intent(this, VehicleDataActivity.class);
+        startActivity(vehicleDataIntent);
     }
 
     @Override
@@ -207,7 +214,8 @@ public class MainActivity extends AppCompatActivity
             openAverageConsumptionFragment();
 
         } else if (id == R.id.nav_vehicleData) {
-            openVehicleDataFragment();
+//            openVehicleDataFragment();
+            openVehicleDataActivity();
 
         } else if (id == R.id.nav_about) {
             isInHome = false;

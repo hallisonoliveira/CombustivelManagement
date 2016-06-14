@@ -20,18 +20,6 @@
     <string name="menu_system">Sistema</string>
     <string name="menu_about">Sobre</string>
     
-    <!-- Messages -->
-    <string name="error_required_field">Campo obrigatório!</string>
-    <string name="error_vehicle_data_required">Você deve preencher o cadastro do veículo antes de utilizar as funcionalidades do aplicativo</string>
-    <string name="error_vehicle_not_saved">Houve um erro ao salvar os dados do veículo.</string>
-    <string name="info_vehicle_saved">Veículo salvo com sucesso!</string>
-    <string name="info_vehicle_data_empty">Nenhum veículo cadastrado.</string>
-    <string name="info_average_consumption_saved">Média de consumo cadastrada com sucesso!</string>
-    <string name="error_average_consumption_not_saved">Houve um erro ao salvar os dados.</string>
-    <string name="info_navigation_history_saved">Histórico de navegação cadastrado com sucesso!</string>
-    <string name="info_navigation_history_not_saved">Houve um erro ao salvar os dados.</string>
-
-
     <!-- Average Consumption -->
     <string name="average_consumption_list_title">Médias de consumo</string>
     <string name="average_consumption_list_general_average">Média geral de consumo</string>
@@ -72,5 +60,42 @@
     <string name="navigation_drawer_close">Close navigation drawer</string>
 
     <string name="action_settings">Settings</string>
+
+
+
+    <!-- Novo formato de string - Todas as strings segirão esse padrão e serão alteradas de acordo com a necessidade -->
+
+    <!-- Gerais -->
+    <!-- Titulos -->
+    <string name="all_vehicle_data">Dados do veículo</string>
+    <string name="all_navigation_history">Histórico de navegações</string>
+    <string name="all_average_consumption">Médias de consumo</string>
+
+    <string name="all_date">Data</string>
+
+    <!-- Dados do veículo -->
+    <string name="vehicledata_manufacturer">Marca</string>
+    <string name="vehicledata_model">Modelo</string>
+    <string name="vehicledata_year">Ano</string>
+    <string name="vehicledata_fuel_capacity">Capacidade do tanque</string>
+
+    <!-- Mensagens -->
+    <!-- Erros -->
+    <string name="error_required_field">Campo obrigatório!</string>
+    <string name="error_vehicle_data_required">Você deve preencher o cadastro do veículo antes
+        de utilizar as funcionalidades do aplicativo</string>
+    <string name="error_vehicle_not_saved">Houve um erro ao salvar os dados do veículo.</string>
+    <string name="error_find_vehicle_data">Houve um erro ao buscar os dados do veículo.</string>
+    <string name="error_fill_vehicle_tank">Houve um erro ao completar o tanque do veículo.</string>
+    <string name="error_navigation_history_not_saved">Houve um erro ao salvar os dados.</string>
+    <string name="error_average_consumption_not_saved">Houve um erro ao salvar os dados.</string>
+
+    <!-- Info -->
+    <string name="info_vehicle_saved">Veículo salvo com sucesso!</string>
+    <string name="info_vehicle_data_empty">Nenhum veículo cadastrado.</string>
+    <string name="info_average_consumption_saved">Média de consumo cadastrada com sucesso!</string>
+    <string name="info_navigation_history_saved">Histórico de navegação cadastrado com sucesso!</string>
+    <string name="info_navigation_history_not_saved">Houve um erro ao salvar os dados.</string>
+
 
 </resources>

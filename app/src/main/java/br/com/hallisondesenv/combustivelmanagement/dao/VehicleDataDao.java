@@ -14,7 +14,7 @@ import io.realm.RealmResults;
  */
 public class VehicleDataDao {
 
-    private static final String TAG = "VehicleDataDAO";
+    private static final String TAG = VehicleDataDao.class.getSimpleName();
 
     public void save(VehicleData vehicleData, Context context){
         RealmConfiguration realmConfiguration = new RealmConfiguration.Builder(context).build();
@@ -51,7 +51,7 @@ public class VehicleDataDao {
         Realm realm = Realm.getInstance(realmConfiguration);
         VehicleData vehicleData = realm.where(VehicleData.class).equalTo("id", 1).findFirst();
         realm.beginTransaction();
-        vehicleData.fillTank();
+//        vehicleData.fillTank(g);
         realm.commitTransaction();
         Log.i(TAG,"Fill Tank >>> " + vehicleData.getRemainingVolume());
     }
